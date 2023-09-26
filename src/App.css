@@ -77,3 +77,13 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.BotonVerDetalle {
+    width: 17%;
+    height: 23%;
+    background-color: #BC4745;
+    color: white;
+    border-width: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
