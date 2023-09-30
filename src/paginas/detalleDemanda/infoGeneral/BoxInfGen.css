@@ -1,0 +1,14 @@
+.BoxInfGen {
+    width: 95%;
+    height: 20%;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 0px 4px 12px 1px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem 2rem;
+   
+    
+}
+
+.BoxInfGen::content{
+    display: flex;
+}

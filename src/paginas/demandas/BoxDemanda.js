@@ -1,4 +1,4 @@
-import DetalleDemanda from "./DetalleDemanda"
+import InfoDemanda from "./InfoDemanda";
 import BotonVerDetalle from "../components/BotonVerDetalle"
 import "./Box.css";
 
@@ -9,7 +9,7 @@ export default function BoxDemanda(){
 
             <div className="BoxDemanda">
                 <div className="BoxDemandaText">
-                    <DetalleDemanda solicitud="1526" demandante="Marco Quispe" demandado="Erick Valderrama" tipo="Obligación de dar suma de dinero" />
+                    <InfoDemanda solicitud="1526" demandante="Marco Quispe" demandado="Erick Valderrama" tipo="Obligación de dar suma de dinero" />
                 </div>
             </div>
             <div className="BoxDemanda2">
