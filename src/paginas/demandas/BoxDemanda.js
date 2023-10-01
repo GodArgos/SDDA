@@ -5,18 +5,17 @@ import "./Box.css";
 
 export default function BoxDemanda(){
     return(
-        <div className="Box">
+        <div className="Box" id="DemandaJuez">
 
-            <div className="BoxDemanda">
-                <div className="BoxDemandaText">
-                    <InfoDemanda solicitud="1526" demandante="Marco Quispe" demandado="Erick Valderrama" tipo="Obligación de dar suma de dinero" />
-                </div>
+            <div className="BoxDemandaText">
+                <InfoDemanda solicitud="1526" demandante="Marco Quispe" demandado="Erick Valderrama" tipo="Obligación de dar suma de dinero" />
             </div>
-            <div className="BoxDemanda2">
-                    <BotonVerDetalle/>
+            <div className="BoxDemandaBoton">                    
+                <BotonVerDetalle/>
             </div>
             
         </div>
+
         
     )
 }
