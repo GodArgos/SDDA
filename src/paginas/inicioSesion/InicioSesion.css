@@ -1,0 +1,60 @@
+.pantallalogin {
+    background-color: #991C1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+   
+}
+.divsuperior {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-bottom: 2%;
+}
+
+.divinferior {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    background-color: white; 
+    border-radius: 10px; 
+    width: 23%;
+
+}
+
+.Elemento { 
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    
+}
+.caja {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.entrar {
+    background-color: #BC4745; 
+    color: #FFFFFF; 
+    border-radius: 10px; 
+    border: none;
+    padding: 8px 35px;
+    margin: 0 auto; 
+    display: block;
+}
+
+.logo-image {
+    width: 35%; 
+    height: auto; 
+}
+
+h1 {
+    font-size: 24px; 
+}
+
+label {
+    font-size: 12px;
+}
