@@ -5,6 +5,7 @@ import PerfilJuez from './paginas/miPerfil/PerfilJuez';
 import DemandaJuez from './paginas/demandas/DemandaJuez';
 import DetalleDemanda from './paginas/detalleDemanda/DetalleDemanda';
 import Login from './paginas/inicioSesion/InicioSesion';
+import Registro from './paginas/registroUsuario/registro';
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
       <DetalleDemanda/>
     </div>  
     Para usar el login se tiene que hacer aparte
-    */
+    */ 
 
-    <Login/>
+    <Registro/>
   );
 }
 
