@@ -27,7 +27,7 @@ export default function Registro() {
                 <option value="Pasaporte">Pasaporte</option>
                 <option value="Otro">Otro</option>
               </select>
-              <input className="caja caja-segunda" type="text" name="doc" id="doc" />
+              <input className="caja caja-segunda" type="number" name="doc" id="doc" />
             </div>
           </div>
           <div className="Elemento">
@@ -36,7 +36,7 @@ export default function Registro() {
           </div>
           <div className="Elemento">
             <label>Número de celular:</label>
-            <input className="caja" type="text" name="celu" id="celu" />
+            <input className="caja" type="number" name="celu" id="celu" />
           </div>
           <div className="Elemento">
             <label>Contraseña:</label>

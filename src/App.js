@@ -16,7 +16,7 @@ function App() {
     Para usar el login se tiene que hacer aparte
     */
 
-    <Registro />
+    <Login />
   );
 }
 
