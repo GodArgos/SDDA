@@ -1,5 +1,3 @@
-export default function BotonEditar(){
-    return(
-        <button className="BotonEditar">Editar</button>
-    )
+export default function BotonEditar() {
+    return <button className="BotonEditar">Editar</button>;
 }

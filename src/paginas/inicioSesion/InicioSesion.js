@@ -7,7 +7,7 @@ export default function Login() {
     return (
         <div className="pantallalogin">
             <div className="divsuperior">
-                <img src={logo} alt="Logo"  className="logo-image" /> 
+                <img src={logo} alt="Logo" className="logo-image" />
             </div>
             <div className="divinferior">
                 <div className="contenidologin">
@@ -20,19 +20,33 @@ export default function Login() {
                             </tr>
                             <tr>
                                 <td className="Elemento">
-                                    <label >Usuario:</label>
-                                    <input className="caja" type="text" name="User" id="User" />
+                                    <label>Usuario:</label>
+                                    <input
+                                        className="caja"
+                                        type="text"
+                                        name="User"
+                                        id="User"
+                                    />
                                 </td>
                             </tr>
                             <tr>
                                 <td className="Elemento">
-                                    <label >Contraseña:</label>
-                                    <input className="caja" type="password" name="passw" id="passw" />
+                                    <label>Contraseña:</label>
+                                    <input
+                                        className="caja"
+                                        type="password"
+                                        name="passw"
+                                        id="passw"
+                                    />
                                 </td>
                             </tr>
                             <tr>
-                                <td >
-                                    <input className="entrar" type="submit" value="Login" />
+                                <td>
+                                    <input
+                                        className="entrar"
+                                        type="submit"
+                                        value="Login"
+                                    />
                                 </td>
                             </tr>
                             <tr>

@@ -8,16 +8,16 @@ import Login from "./paginas/inicioSesion/InicioSesion";
 import Registro from "./paginas/registroUsuario/registro";
 
 function App() {
-  return (
-    /* <div className='Principal'>
+    return (
+        /* <div className='Principal'>
       <Banner/>
       <DetalleDemanda/>
     </div>  
     Para usar el login se tiene que hacer aparte
     */
 
-    <Login />
-  );
+        <Login />
+    );
 }
 
 export default App;
