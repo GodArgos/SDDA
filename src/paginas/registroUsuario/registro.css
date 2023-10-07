@@ -5,69 +5,93 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-   
 }
+
 .divsuperior {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 2%;
 }
 
 .divinferior {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    background-color: white; 
-    border-radius: 10px; 
-    width: 23%;
-
-}
-
-td { 
-    vertical-align: middle;
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    width: 23%;
 }
+
 .caja {
     margin-bottom: 10px;
     border-radius: 5px;
     height: 30px;
 }
 
-.input {
-    border-radius: 10px; 
+.registrar {
+    background-color: #BC4745;
+    color: #FFFFFF;
+    border-radius: 12px;
     border: none;
     padding: 8px 35px;
-    margin: 0 auto; 
+    margin: 0 auto;
     display: block;
 }
 
-.registrar {
-    background-color: #BC4745; 
-    color: #FFFFFF; 
-}
-
 .volver {
-    background-color: #B4B4B4; 
-    color: #FFFFFF; 
+    background-color: #B4B4B4;
+    color: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    padding: 8px 35px;
+    margin: 0 auto;
+    display: block;
 }
 
 .logo-image {
-    width: 35%; 
-    height: auto; 
+    width: 35%;
+    height: auto;
 }
 
 h1 {
-    font-size: 24px; 
+    font-size: 24px;
 }
 
 label {
     font-size: 12px;
 }
 
-table, th, td {
-    border: 1px solid black; 
+.divinferior > div {
+    margin: 10px;
 }
 
+.botones {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.documento-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.documento-item {
+    flex: 1;
+}
+
+.titulo {
+    text-align: center;
+}
+
+
+.caja-documento {
+    width: 30%;
+}
+
+.caja-segunda {
+    flex: 1;
+    width: 70%;
+}
