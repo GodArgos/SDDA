@@ -55,7 +55,7 @@
     height: auto;
   }
   
-  h1 {
+  #h1 {
     font-size: 24px;
     text-align: center; /* Centramos el texto del título */
   }

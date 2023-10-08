@@ -1,0 +1,25 @@
+.contExp {
+    margin-left: 30%;
+    display: flex;
+    flex-direction: column;
+    background-color: #991C1E;
+    border-radius: 10px;
+    width: 33%;
+    height: 29%;
+}
+
+#name{
+    margin-left: 10%;
+    color: white;
+}
+
+#input{
+    border-radius: 10px;
+    height: 30px;
+    width: 78%;
+    margin-left: 10%;
+}
+
+#boton{
+    text-align: center;
+}
