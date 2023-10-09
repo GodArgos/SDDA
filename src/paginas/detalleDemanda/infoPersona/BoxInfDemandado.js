@@ -7,7 +7,7 @@ export default function BoxInfDemandado() {
     return (
         <div id="InfPersona">
             <div className="Box">
-                <h3>Información personal del demandante: </h3>
+                <h3>Información personal del demandado: </h3>
                 <InfoInfAbogado
                     nombres="Mike owo"
                     apellidos="Guillen"

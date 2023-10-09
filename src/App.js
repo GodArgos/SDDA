@@ -12,7 +12,7 @@ function App() {
     return (
         <div className="Principal">
             <Banner />
-            <DetalleExpediente />
+            <DetalleDemanda />
         </div>
         //Para usar el login se tiene que hacer aparte
 
