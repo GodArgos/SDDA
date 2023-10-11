@@ -1,5 +1,5 @@
 import InfoDemanda from "./InfoDemanda";
-import BotonVerDetalle from "../components/BotonVerDetalle";
+import BotonVerDetalle from "../../components/BotonVerDetalle";
 import "./Box.css";
 
 export default function BoxDemanda() {

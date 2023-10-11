@@ -1,6 +1,5 @@
-import BotonEditar from "../components/BotonEditar";
+import BotonEditar from "../../components/BotonEditar";
 import InfoJuez from "./InfoJuez";
-import "./Perfil.css";
 
 export default function PerfilJuez() {
     return (

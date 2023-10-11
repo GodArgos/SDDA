@@ -1,6 +1,6 @@
 export default function InfoJuez(props){
     return(
-        <div className="InfoJuez">
+        <div className="Info">
             <p><b>Nombre:</b> {props.nombre}</p>
             <p><b>Apellidos:</b> {props.apellidos}</p>
             <p><b>Género:</b> {props.genero}</p>

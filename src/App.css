@@ -63,8 +63,9 @@
 /* CSS del contenido */
 
 .Contenido {
-    width: 75.5vw;
-    margin: 4%;
+    width: 76vw;
+    padding: 4%;
+    overflow-y: scroll;
 }
 
 /* CSS de botones */
@@ -109,11 +110,25 @@
 
 /*CSS de los Box*/ 
 .Box {
-    width: 95%;
+    position: relative;
+    max-width: 100%;
     height: 28%;
     border-radius: 30px;
     background: #FFF;
     box-shadow: 0px 4px 12px 1px rgba(0, 0, 0, 0.25);
     padding: 0.5rem 2rem;
     margin-bottom: 2%;
+}
+
+/* Css de la paginas de bienvenida */
+.Bienvenida {
+    position: relative;
+    text-align: center;
+    top: 20%;;
+    font-size: 22px; 
+}
+
+/* CSS de la vista MiPerfil */
+.Info p {
+    margin: 1px;
 }

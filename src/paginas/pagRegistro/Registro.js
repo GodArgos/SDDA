@@ -1,6 +1,5 @@
 import React from "react";
-import Logo from "../components/Logo";
-import "./registro.css";
+import "./Registro.css";
 import logo from "../../imagenes/logo.png";
 
 export default function Registro() {
