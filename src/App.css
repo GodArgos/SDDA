@@ -60,6 +60,11 @@
     cursor: pointer;
 }
 
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
 /* CSS del contenido */
 
 .Contenido {

@@ -1,5 +1,5 @@
 import InfoInfSunarp from "./InfoInfSunarp";
-import BotonVerExpediente from "../../components/BotonVerExpediente";
+import BotonVerExpediente from "../../../components/BotonVerExpediente";
 
 export default function BoxInfSunarp() {
     return (

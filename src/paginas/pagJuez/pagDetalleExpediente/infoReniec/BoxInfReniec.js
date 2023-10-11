@@ -1,5 +1,5 @@
 import InfoInfReniec from "./InfoInfReniec";
-import BotonVerExpediente from "../../components/BotonVerExpediente";
+import BotonVerExpediente from "../../../components/BotonVerExpediente";
 
 export default function BoxInfReniec() {
     return (
