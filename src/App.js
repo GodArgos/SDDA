@@ -18,8 +18,12 @@ import InicioPN from "./paginas/pagPersonaNatural/pagInicioPN/InicioPN";
 import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
 import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDemanda";
 import BoxDemanda from "./paginas/pagJuez/pagDemandas/BoxDemanda";
+import { useState } from "react";
 
 function App() {
+
+    const [user, setUser] = useState(null);
+
     return (
         //Rutas de Juez
         <div className="Principal">

@@ -1,14 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import BotonBuscar from "../../../components/BotonBuscar";
 import "./Expediente.css";
 
 export default function Expediente() {
+    const navigate = useNavigate();
+    const [dni, setDni] = useState("");
 
-    const[dni, setDni] = useState("");
-
-    const onChangeHandler = e => {
+    const onChangeHandler = (e) => {
         setDni(e.target.value);
-    }
+        console.log(dni);
+    };
+
+    const handleOnClick = () => {
+        navigate("/expedientes/"+dni);
+        console.log("hola");
+    };
 
     return (
         <div className="Contenido" id="exp">
@@ -18,17 +26,15 @@ export default function Expediente() {
                 del DNI.
             </p>
             <div className="contExp">
-                <div>
-                    <p id="name">DNI</p>
-                    <div>
-                        <input type="number" id="input" min="8" max="8" onChange={onChangeHandler}/>
-                    </div>
-
-                    <div id="boton">
-                        <br />
-                        <BotonBuscar dni={dni}/>
-                    </div>
-                </div>
+                <label id="name">DNI</label>
+                <input
+                    type="number"
+                    id="input"
+                    min="8"
+                    max="8"
+                    onChange={onChangeHandler}
+                />
+                <BotonBuscar func={handleOnClick} />
             </div>
         </div>
     );

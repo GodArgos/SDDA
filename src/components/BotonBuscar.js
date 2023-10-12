@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
-
 export default function BotonEditar(props) {
-    
-    const {url} = "/expedientes/" + props.dni;
+
+    const func = props.func;
 
     return (
-        <Link to={url} className="BotonVerExpediente"></Link>
+        <button onClick={func} className="BotonBuscar">Buscar</button>
+        
     );
 }
+
+//<Link to={url} className="BotonVerExpediente">Buscar</Link>
