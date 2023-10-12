@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import BotonBanner from "./BotonBanner";
 
 //imagenes
@@ -14,10 +15,32 @@ export default function Banner() {
             <Logo />
             <div className="Inferior">
                 <div className="BotonSuperior">
-                    <BotonBanner imagen={inicio} texto="Inicio" />
-                    <BotonBanner imagen={perfil} texto="Mi Perfil" />
-                    <BotonBanner imagen={demandas} texto="Llenar Demanda" />
-                    <BotonBanner imagen={expedientes} texto="Revisar Demandas" />
+                    <ul>
+                        <li>
+                            <NavLink to="/" className="BotonBanner">
+                                <img src={inicio} alt="inicio"/>
+                                <div className="NombreBoton">Inicio</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/perfil" className="BotonBanner">
+                                <img src={perfil} alt="perfil"/>
+                                <div className="NombreBoton">Mi Perfil</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/demandas" className="BotonBanner">
+                                <img src={demandas} alt="demandas"/>
+                                <div className="NombreBoton">Llenar Demandas</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/expedientes" className="BotonBanner">
+                                <img src={expedientes} alt="expedientes"/>
+                                <div className="NombreBoton">Revisar Demandas</div>
+                            </NavLink>
+                        </li>
+                    </ul>
                 </div>
                 <div className="BotonInferior">
                     <BotonBanner imagen={logout} texto="Cerrar sesión" />

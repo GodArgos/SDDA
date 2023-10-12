@@ -49,14 +49,3 @@ export default function Banner() {
         </div>
     );
 }
-/* 
-                <div className="BotonSuperior">
-                    <BotonBanner imagen={inicio} texto="Inicio" />
-                    <BotonBanner imagen={perfil} texto="Mi Perfil" />
-                    <BotonBanner imagen={expedientes} texto="Expedientes" />
-                    <BotonBanner imagen={demandas} texto="Demandas" />
-                </div>
-                <div className="BotonInferior">
-                    <BotonBanner imagen={logout} texto="Cerrar sesión" />
-                </div>
-*/
