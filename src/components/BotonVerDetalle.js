@@ -1,3 +1,10 @@
-export default function BotonVerDetalle() {
-    return <button className="BotonVerDetalle">Ver Detalle</button>;
+import { Link } from "react-router-dom";
+
+export default function BotonVerDetalle(props) {
+
+    const {url} = props;
+
+    return(
+        <Link to={url} className="BotonVerDetalle">Ver Detalle</Link>
+    );
 }

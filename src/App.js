@@ -17,6 +17,7 @@ import Expediente from "./paginas/pagJuez/pagExpedientes/Expediente";
 import InicioPN from "./paginas/pagPersonaNatural/pagInicioPN/InicioPN";
 import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
 import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDemanda";
+import BoxDemanda from "./paginas/pagJuez/pagDemandas/BoxDemanda";
 
 function App() {
     return (
@@ -28,7 +29,9 @@ function App() {
                     <Route path="/" element={<InicioJuez />} />
                     <Route path="/perfil" element={<PerfilJuez />} />
                     <Route path="/demandas" element={<DemandaJuez />} />
+                    <Route path="/demandas/:id" element={<DetalleDemanda />} />
                     <Route path="/expedientes" element={<Expediente />} />
+                    <Route path="/expedientes/:dni" element={<DetalleExpediente />} />
                     <Route path="/*" element={<h1 className="Contenido">404 Pagina no encontrada</h1>} />
                 </Routes>
             </BrowserRouter>

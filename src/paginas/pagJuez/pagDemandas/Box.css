@@ -1,24 +1,15 @@
 /* CSS del box para la pantalla demandas del Juez. */
-
-
-.BoxDemandaText{
-    width: 50%;
+.BoxDemandaText {
+    width: 100%;
     float: left;
     height: 100%;
 }
-.BoxDemandaBoton{
-    width: 50%;
+
+.BoxDemandaBoton {
+    width: 100%;
     float: left;
     height: 100%;
     display: flex;
     align-items: flex-end;
-    justify-content: end;
+    justify-content: flex-end;
 }
-
-.BotonVerDetalle {
-    align-content: right;
-    margin-bottom: 3%;
-}
-
-
-

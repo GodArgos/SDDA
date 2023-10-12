@@ -3,15 +3,15 @@
 .Principal {
     display: flex;
     width: 100%;
-    height: 100VH;
+    height: 100vh;
 }
 
 /* CSS DE LA BARRA LATERAL */
 
 .Banner {
-    background-color: #991C1E;
+    background-color: #991c1e;
     width: 16%;
-    height: 100VH;
+    height: 100vh;
 }
 
 .Logo {
@@ -40,7 +40,7 @@
 }
 
 .BotonBanner:hover {
-    background-color: #BC4745;
+    background-color: #bc4745;
 }
 
 .BotonBanner img {
@@ -70,7 +70,7 @@ ul {
 }
 
 .active {
-    background-color: #BC4745;
+    background-color: #bc4745;
 }
 
 .NombreBoton {
@@ -101,22 +101,28 @@ ul {
 
 .BotonVerDetalle {
     width: 17%;
-    height: 23%;
-    background-color: #BC4745;
+    max-height: 23%;
+    background-color: #bc4745;
     color: white;
     border-width: 0px;
     border-radius: 10px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    padding: 1%;
 }
 
 .BotonVerExpediente {
-    width: 17%;
-    height: 27%;
-    background-color: #BC4745;
+    width: 5%;
+    height: 5%;
+    background-color: #bc4745;
     color: white;
     border-width: 0px;
     border-radius: 10px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5%;
 }
 
 .BotonBuscar {
@@ -128,24 +134,29 @@ ul {
     cursor: pointer;
 }
 
-/*CSS de los Box*/ 
+/*CSS de los Box*/
 .Box {
     position: relative;
     max-width: 100%;
     height: 28%;
     border-radius: 30px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 0px 4px 12px 1px rgba(0, 0, 0, 0.25);
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 2rem 1rem 2rem;
     margin-bottom: 2%;
+}
+
+#DemandaJuez {
+    display: flex;
+    justify-content: space-around;
 }
 
 /* Css de la paginas de bienvenida */
 .Bienvenida {
     position: relative;
     text-align: center;
-    top: 20%;;
-    font-size: 22px; 
+    top: 20%;
+    font-size: 22px;
 }
 
 /* CSS de la vista MiPerfil */
