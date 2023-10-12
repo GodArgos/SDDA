@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import BotonBanner from "./BotonBanner";
 
-//imagenes
+//imagenes para el banner
 import Logo from "./Logo";
 import inicio from "../imagenes/inicio.png";
 import perfil from "../imagenes/perfil.png";
