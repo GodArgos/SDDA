@@ -1,6 +1,6 @@
 import InfoInfAbogado from "./InfoInfAbogado";
 import InfoInfPersona from "./InfoInfPersona";
-import BotonVerExpediente from "../../../components/BotonVerExpediente";
+import BotonVerExpediente from "../../../../components/BotonVerExpediente";
 import "./BoxInfPersona.css";
 
 export default function BoxInfDemandado() {

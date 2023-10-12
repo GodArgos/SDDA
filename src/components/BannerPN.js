@@ -1,10 +1,12 @@
 import BotonBanner from "./BotonBanner";
+
+//imagenes
 import Logo from "./Logo";
-import inicio from "../../imagenes/inicio.png";
-import perfil from "../../imagenes/perfil.png";
-import expedientes from "../../imagenes/expedientes.png";
-import demandas from "../../imagenes/demandas.png";
-import logout from "../../imagenes/logout.png";
+import inicio from "../imagenes/inicio.png";
+import perfil from "../imagenes/perfil.png";
+import expedientes from "../imagenes/expedientes.png";
+import demandas from "../imagenes/demandas.png";
+import logout from "../imagenes/logout.png";
 
 export default function Banner() {
     return (

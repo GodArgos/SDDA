@@ -1,5 +1,5 @@
 import InfoInfSecretario from "./InfoInfSecretario";
-import BotonVerExpediente from "../../../components/BotonVerExpediente";
+import BotonVerExpediente from "../../../../components/BotonVerExpediente";
 
 export default function BoxInfSecretario() {
     return (

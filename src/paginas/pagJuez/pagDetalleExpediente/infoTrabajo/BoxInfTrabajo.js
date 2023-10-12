@@ -1,5 +1,5 @@
 import InfoInfTrabajo from "./InfoInfTrabajo";
-import BotonVerExpediente from "../../../components/BotonVerExpediente";
+import BotonVerExpediente from "../../../../components/BotonVerExpediente";
 
 export default function BoxInfTrabajo() {
     return (

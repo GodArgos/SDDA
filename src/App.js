@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import BannerJuez from "./paginas/components/BannerJuez";
-import BannerPN from "./paginas/components/BannerPN";
+import BannerJuez from "./components/BannerJuez";
+import BannerPN from "./components/BannerPN";
 /* Vista de Inicio de sesión y Registro */
 import InicioSesion from "./paginas/pagInicioSesion/InicioSesion";
 import Registro from "./paginas/pagRegistro/Registro";

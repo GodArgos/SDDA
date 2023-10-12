@@ -1,4 +1,4 @@
-import BotonBuscar from "../../components/BotonBuscar";
+import BotonBuscar from "../../../components/BotonBuscar";
 import "./Expediente.css";
 
 export default function Expediente() {

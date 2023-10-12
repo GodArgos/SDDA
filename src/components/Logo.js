@@ -1,4 +1,4 @@
-import logo from "../../imagenes/logo.png";
+import logo from "../imagenes/logo.png";
 
 export default function Logo() {
     return (

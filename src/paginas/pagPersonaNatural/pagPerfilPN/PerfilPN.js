@@ -1,4 +1,4 @@
-import BotonEditar from "../../components/BotonEditar";
+import BotonEditar from "../../../components/BotonEditar";
 import InfoJuez from "./InfoPN";
 
 export default function PerfilJuez() {
