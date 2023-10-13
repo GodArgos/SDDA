@@ -5,7 +5,7 @@ import "./Box.css";
 export default function BoxDemanda() {
 
     const id = 1;
-    const url = "/demandas/" + id;
+    const url = "/J/demandas/" + id;
 
     return (
         <div className="Box" id="DemandaJuez">

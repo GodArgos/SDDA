@@ -1,8 +1,13 @@
 import React from "react";
 import "./Registro.css";
 import logo from "../../imagenes/logo.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Registro() {
+    const navigate = useNavigate();
+    const volverLogin = () => {
+        navigate("/");
+    }
     return (
         <div className="pantallalogin">
             <div className="divsuperior">
@@ -76,8 +81,9 @@ export default function Registro() {
                     <div className="botones">
                         <input
                             className="volver"
-                            type="submit"
+                            type="button"
                             value="Volver"
+                            onClick={volverLogin}
                         />
                         <input
                             className="registrar"

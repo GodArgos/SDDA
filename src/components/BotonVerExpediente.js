@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function BotonVerDetalle(props) {
+export default function BotonVerExpediente(props) {
 
     const {dni} = props;
-    const url = "/expedientes/" + dni;
+    const url = "/J/expedientes/" + dni;
 
     return(
         <Link to={url} className="BotonVerExpediente">Ver Expediente</Link>
