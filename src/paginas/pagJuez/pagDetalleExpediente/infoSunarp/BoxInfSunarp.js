@@ -1,5 +1,4 @@
 import InfoInfSunarp from "./InfoInfSunarp";
-import BotonVerExpediente from "../../../../components/BotonVerExpediente";
 
 export default function BoxInfSunarp() {
     return (
@@ -11,7 +10,6 @@ export default function BoxInfSunarp() {
                     vehiculo="789625"
                     observacion="owowowowwo"
                 />
-                <BotonVerExpediente />
             </div>
         </div>
     );

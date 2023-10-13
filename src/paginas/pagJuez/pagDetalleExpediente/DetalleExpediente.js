@@ -2,11 +2,10 @@ import { useParams } from "react-router-dom";
 
 import BannerJuez from "../../../components/BannerJuez";
 import InfoDetalleExpediente from "./InfoDetalleExpediente";
-import BoxInfObservacion from "./infoObservacion/BoxInfObservacion";
 import BoxInfReniec from "./infoReniec/BoxInfReniec";
 import BoxInfSunarp from "./infoSunarp/BoxInfSunarp";
 import BoxInfTrabajo from "./infoTrabajo/BoxInfTrabajo";
-import BoxInfSecretario from "./infoSecretario/BoxInfSecretario";
+/* import BoxInfSecretario from "./infoSecretario/BoxInfSecretario"; */
 
 export default function DetalleExpediente(props) {
     const func = props.func;
@@ -24,8 +23,6 @@ export default function DetalleExpediente(props) {
                     expediente.
                 </p>
 
-                <BoxInfObservacion />
-
                 <div className="InfReniec">
                     <BoxInfReniec />
                 </div>
@@ -38,9 +35,9 @@ export default function DetalleExpediente(props) {
                     <BoxInfTrabajo />
                 </div>
 
-                <div className="InfSecretario">
+                {/* <div className="InfSecretario">
                     <BoxInfSecretario />
-                </div>
+                </div> */}
             </div>
         </>
     );

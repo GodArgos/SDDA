@@ -1,5 +1,4 @@
 import InfoInfTrabajo from "./InfoInfTrabajo";
-import BotonVerExpediente from "../../../../components/BotonVerExpediente";
 
 export default function BoxInfTrabajo() {
     return (
@@ -12,7 +11,6 @@ export default function BoxInfTrabajo() {
                     ingreso="45896"
                     observacion="owowowowwo"
                 />
-                <BotonVerExpediente />
             </div>
         </div>
     );

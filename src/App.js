@@ -22,7 +22,7 @@ import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDe
 function App() {
     /* Este vendría a ser el usuario que está ingresando a la página, en permission se ve el rol que ocupa, 
     puede ser "Juez" o "PN". */
-    const [user, setUser] = useState({id:1, name:"Miguel", permissions:["Juez"]});
+    const [user, setUser] = useState({id:1, name:"Miguel", permissions:["Juez","PN"]});
 
     const login = () => {
         setUser({id:1, name:"Miguel", permissions:["PN"]});

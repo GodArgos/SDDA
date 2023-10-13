@@ -1,5 +1,4 @@
 import InfoInfSecretario from "./InfoInfSecretario";
-import BotonVerExpediente from "../../../../components/BotonVerExpediente";
 
 export default function BoxInfSecretario() {
     return (
@@ -13,7 +12,6 @@ export default function BoxInfSecretario() {
                     sexo="adios"
                     colegiatura="87544"
                 />
-                <BotonVerExpediente />
             </div>
         </div>
     );

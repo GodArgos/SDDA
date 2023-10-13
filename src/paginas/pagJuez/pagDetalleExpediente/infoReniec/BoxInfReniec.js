@@ -1,5 +1,4 @@
 import InfoInfReniec from "./InfoInfReniec";
-import BotonVerExpediente from "../../../../components/BotonVerExpediente";
 
 export default function BoxInfReniec() {
     return (
@@ -15,7 +14,6 @@ export default function BoxInfReniec() {
                     civil="matenme"
                     grado="owo"
                 />
-                <BotonVerExpediente/>
             </div>
         </div>
     );
