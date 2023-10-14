@@ -1,6 +1,6 @@
 import InfoDemanda from "./InfoDemanda";
 import BotonVerDetalle from "../../../components/BotonVerDetalle";
-import "./Box.css";
+import "./BoxDemanda.css";
 
 export default function BoxDemanda() {
 

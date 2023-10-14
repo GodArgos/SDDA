@@ -13,10 +13,12 @@ import DemandaJuez from "./paginas/pagJuez/pagDemandas/DemandaJuez";
 import DetalleDemanda from "./paginas/pagJuez/pagDetalleDemanda/DetalleDemanda";
 import DetalleExpediente from "./paginas/pagJuez/pagDetalleExpediente/DetalleExpediente";
 import Expediente from "./paginas/pagJuez/pagExpedientes/Expediente";
+import SolicitudDemanda from "./paginas/pagJuez/pagSolicitudDemanda/SolicitudDemanda";
 /* Vista de persona natural */
 import InicioPN from "./paginas/pagPersonaNatural/pagInicioPN/InicioPN";
 import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
 import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDemanda";
+
 
 
 function App() {
@@ -49,6 +51,7 @@ function App() {
                         <Route path="/J/demandas/:id" element={<DetalleDemanda func={logout}/>} />
                         <Route path="/J/expedientes" element={<Expediente func={logout} />} />
                         <Route path="/J/expedientes/:dni" element={<DetalleExpediente func={logout}/>} />
+                        <Route path="/J/solicitudes" element={<SolicitudDemanda func={logout}/>} />
                     </Route>
                     {/* Ruta protegida de las vistas de persona natural */}
                     <Route element={<ProtectedRoute isAllowed={!!user && user.permissions.includes("PN")}/>}>
