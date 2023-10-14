@@ -1,5 +1,8 @@
 import BannerJuez from "../../../components/BannerJuez";
 import InfoCrearDemanda from "./InfoCrearDemanda";
+import BoxDemandante from "./BoxDemandante";
+import BoxDemandado from "./BoxDemandado";
+import "./CrearDemanda.css"
 
 export default function CrearDemanda(props) {
     const func = props.func;
@@ -12,6 +15,13 @@ export default function CrearDemanda(props) {
                 <p>
                     En esta pestaña se podrá crear la demanda.
                 </p>
+
+                <div className="grid-container">
+                    <BoxDemandante/>
+                    <BoxDemandado/>
+                </div>
+  
+
             </div>
         </>
     );

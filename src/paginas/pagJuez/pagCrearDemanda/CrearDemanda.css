@@ -1,0 +1,22 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  
+  .left-box {
+    background-color: white; 
+    color: black; 
+    border: 3px solid black; 
+    border-radius: 10px; 
+    padding: 10px;
+  }
+  
+  .right-box {
+    background-color:  white; 
+    color: black; 
+    border: 3px solid #991C1E;
+    border-radius: 10px; 
+    padding: 10px;
+  }
+  
