@@ -1,5 +1,7 @@
 import React from "react";
 import "./Registro.css";
+import BotonVolver from "../../components/BotonVolver";
+import BotonRegistrar from "../../components/BotonRegistrar";
 import logo from "../../imagenes/logo.png";
 import { useNavigate } from "react-router-dom";
 
@@ -79,16 +81,10 @@ export default function Registro() {
                         />
                     </div>
                     <div className="botones">
-                        <input
-                            className="volver"
-                            type="button"
-                            value="Volver"
+                        <BotonVolver
                             onClick={volverLogin}
                         />
-                        <input
-                            className="registrar"
-                            type="submit"
-                            value="Registrar"
+                        <BotonRegistrar
                         />
                     </div>
                 </div>

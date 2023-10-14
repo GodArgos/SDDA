@@ -1,4 +1,5 @@
 import React from "react";
+import BotonLogin from "../../components/BotonLogin";
 import "./InicioSesion.css";
 import logo from "../../imagenes/logo.png";
 import { Link } from "react-router-dom";
@@ -31,12 +32,14 @@ export default function Login() {
                         />
                     </div>
                     <div className="Elemento">
-                        <input className="entrar" type="submit" value="Login" />
+                        <BotonLogin />
                     </div>
                     <div className="Elemento">
                         <p>
                             ¿No estás registrado?{" "}
-                            <Link to="/Registro" className="rojo">Registrate aquí</Link>
+                            <Link to="/Registro" className="rojo">
+                                Registrate aquí
+                            </Link>
                         </p>
                     </div>
                 </div>

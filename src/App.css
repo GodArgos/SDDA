@@ -147,6 +147,42 @@ ul {
     padding: 1%;
 }
 
+.BotonLogin{
+    background-color: #BC4745;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: none;
+    padding: 8px 35px;
+    width: 30%;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.BotonVolver {
+    background-color: #B4B4B4;
+    color: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    padding: 8px 35px;
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+}
+
+.BotonRegistrar {
+    background-color: #BC4745;
+    color: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    padding: 8px 35px;
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+}
+
 /*CSS de los Box*/
 .Box {
     position: relative;

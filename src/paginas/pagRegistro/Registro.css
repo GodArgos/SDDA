@@ -39,16 +39,6 @@
     display: block;
 }
 
-.volver {
-    background-color: #B4B4B4;
-    color: #FFFFFF;
-    border-radius: 12px;
-    border: none;
-    padding: 8px 35px;
-    margin: 0 auto;
-    display: block;
-}
-
 .logo-image {
     width: 35%;
     height: auto;
