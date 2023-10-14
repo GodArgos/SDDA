@@ -9,11 +9,11 @@ import BoxInfTrabajo from "./infoTrabajo/BoxInfTrabajo";
 
 export default function DetalleExpediente(props) {
     const func = props.func;
-    const {dni} = useParams();
+    const { dni } = useParams();
 
     return (
         <>
-            <BannerJuez func={func}/>
+            <BannerJuez func={func} />
             <div className="Contenido">
                 <h1>
                     Expediente <InfoDetalleExpediente dni={dni} />

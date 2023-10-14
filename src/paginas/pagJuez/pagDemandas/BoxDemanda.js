@@ -3,7 +3,6 @@ import BotonVerDetalle from "../../../components/BotonVerDetalle";
 import "./BoxDemanda.css";
 
 export default function BoxDemanda() {
-
     const id = 1;
     const url = "/J/demandas/" + id;
 
@@ -18,7 +17,7 @@ export default function BoxDemanda() {
                 />
             </div>
             <div className="BoxDemandaBoton">
-                <BotonVerDetalle url={url}/>
+                <BotonVerDetalle url={url} />
             </div>
         </div>
     );

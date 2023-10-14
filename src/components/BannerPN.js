@@ -20,29 +20,38 @@ export default function Banner(props) {
                     <ul>
                         <li>
                             <NavLink to="/P/" className="BotonBanner">
-                                <img src={inicio} alt="inicio"/>
+                                <img src={inicio} alt="inicio" />
                                 <div className="NombreBoton">Inicio</div>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to="/P/perfil" className="BotonBanner">
-                                <img src={perfil} alt="perfil"/>
+                                <img src={perfil} alt="perfil" />
                                 <div className="NombreBoton">Mi Perfil</div>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to="/P/demandas" className="BotonBanner">
-                                <img src={demandas} alt="demandas"/>
-                                <div className="NombreBoton">Llenar Demandas</div>
+                                <img src={demandas} alt="demandas" />
+                                <div className="NombreBoton">
+                                    Llenar Demandas
+                                </div>
                             </NavLink>
                         </li>
                         <li>
-                            <BotonBanner imagen={expedientes} texto="Revisar Demandas"/>
+                            <BotonBanner
+                                imagen={expedientes}
+                                texto="Revisar Demandas"
+                            />
                         </li>
                     </ul>
                 </div>
                 <div className="BotonInferior">
-                    <BotonBanner imagen={logout} texto="Cerrar sesión" func={func}/>
+                    <BotonBanner
+                        imagen={logout}
+                        texto="Cerrar sesión"
+                        func={func}
+                    />
                 </div>
             </div>
         </div>

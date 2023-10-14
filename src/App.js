@@ -66,7 +66,7 @@ function App() {
                         <Route
                             path="/J/solicitudes"
                             element={<SolicitudDemanda func={logout} />}
-                        />  
+                        />
                         <Route
                             path="/J/demandas"
                             element={<DemandaJuez func={logout} />}
@@ -83,7 +83,6 @@ function App() {
                             path="/J/expedientes/:dni"
                             element={<DetalleExpediente func={logout} />}
                         />
-                        
                     </Route>
                     {/* Ruta protegida de las vistas de persona natural */}
                     <Route

@@ -4,10 +4,10 @@ import InfoJuez from "./InfoJuez";
 
 export default function PerfilJuez(props) {
     const func = props.func;
-    
+
     return (
         <>
-            <BannerJuez func={func}/>
+            <BannerJuez func={func} />
             <div className="Contenido">
                 <h1>Mi Perfil</h1>
                 <p>Informacion general del perfil del juez.</p>

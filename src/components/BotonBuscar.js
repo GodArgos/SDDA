@@ -1,10 +1,9 @@
 export default function BotonEditar(props) {
-
+    
     const func = props.func;
 
     return (
         <button onClick={func} className="BotonBuscar">Buscar</button>
-        
     );
 }
 

@@ -39,18 +39,6 @@
     padding: 5px;
   }
   
-  .entrar {
-    background-color: #BC4745;
-    color: #FFFFFF;
-    border-radius: 10px;
-    border: none;
-    padding: 8px 35px;
-    width: 100%;
-    max-width: 150px;
-    margin: 0 auto;
-    display: block;
-  }
-  
   .logo-image {
     width: 35%;
     height: auto;

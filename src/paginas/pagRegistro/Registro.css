@@ -29,16 +29,6 @@
     height: 30px;
 }
 
-.registrar {
-    background-color: #BC4745;
-    color: #FFFFFF;
-    border-radius: 12px;
-    border: none;
-    padding: 8px 35px;
-    margin: 0 auto;
-    display: block;
-}
-
 .logo-image {
     width: 35%;
     height: auto;

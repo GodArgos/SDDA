@@ -15,7 +15,7 @@ export default function Expediente(props) {
     };
 
     const handleOnClick = () => {
-        navigate("/J/expedientes/"+dni);
+        navigate("/J/expedientes/" + dni);
         console.log("hola");
     };
 
@@ -23,12 +23,12 @@ export default function Expediente(props) {
 
     return (
         <>
-            <BannerJuez func={func}/>
+            <BannerJuez func={func} />
             <div className="Contenido">
                 <h1>Expedientes</h1>
                 <p>
-                    En esta pestaña se podrá buscar el expediente requerido a traves
-                    del DNI.
+                    En esta pestaña se podrá buscar el expediente requerido a
+                    traves del DNI.
                 </p>
                 <div className="contExp">
                     <label id="name">DNI</label>

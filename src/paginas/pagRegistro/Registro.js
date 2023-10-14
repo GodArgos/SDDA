@@ -9,7 +9,7 @@ export default function Registro() {
     const navigate = useNavigate();
     const volverLogin = () => {
         navigate("/");
-    }
+    };
     return (
         <div className="pantallalogin">
             <div className="divsuperior">
@@ -81,11 +81,8 @@ export default function Registro() {
                         />
                     </div>
                     <div className="botones">
-                        <BotonVolver
-                            onClick={volverLogin}
-                        />
-                        <BotonRegistrar
-                        />
+                        <BotonVolver onClick={volverLogin} />
+                        <BotonRegistrar />
                     </div>
                 </div>
             </div>

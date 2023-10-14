@@ -8,10 +8,10 @@ import BoxInfDemandado from "./infoPersona/BoxInfDemandado";
 
 export default function DetalleDemanda(props) {
     const func = props.func;
-    const {id} = useParams();
+    const { id } = useParams();
     return (
         <>
-            <BannerJuez func={func}/>
+            <BannerJuez func={func} />
             <div className="Contenido">
                 <h1>
                     Demanda <InfoDetalleDemanda solicitud={id} />
