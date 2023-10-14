@@ -14,6 +14,7 @@ import DetalleDemanda from "./paginas/pagJuez/pagDetalleDemanda/DetalleDemanda";
 import DetalleExpediente from "./paginas/pagJuez/pagDetalleExpediente/DetalleExpediente";
 import Expediente from "./paginas/pagJuez/pagExpedientes/Expediente";
 import SolicitudDemanda from "./paginas/pagJuez/pagSolicitudDemanda/SolicitudDemanda";
+import CrearDemanda from "./paginas/pagJuez/pagCrearDemanda/CrearDemanda";
 /* Vista de persona natural */
 import InicioPN from "./paginas/pagPersonaNatural/pagInicioPN/InicioPN";
 import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
@@ -66,6 +67,10 @@ function App() {
                         <Route
                             path="/J/solicitudes"
                             element={<SolicitudDemanda func={logout} />}
+                        />
+                        <Route
+                            path="/J/solicitudes/:dni"
+                            element={<CrearDemanda func={logout} />}
                         />
                         <Route
                             path="/J/demandas"
