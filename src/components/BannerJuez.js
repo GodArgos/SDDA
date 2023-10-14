@@ -31,12 +31,15 @@ export default function Banner(props) {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to="/J/expedientes"
-                                className="BotonBanner"
-                            >
+                            <NavLink to="/J/expedientes" className="BotonBanner">
                                 <img src={expedientes} alt="expedientes" />
                                 <div className="NombreBoton">Expedientes</div>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/J/solicitudes" className="BotonBanner">
+                                <img src={demandas} alt="solicitudes" />
+                                <div className="NombreBoton">Solicitudes</div>
                             </NavLink>
                         </li>
                         <li>

@@ -69,7 +69,7 @@ function App() {
                             element={<SolicitudDemanda func={logout} />}
                         />
                         <Route
-                            path="/J/solicitudes/:dni"
+                            path="/J/solicitudes/:id"
                             element={<CrearDemanda func={logout} />}
                         />
                         <Route
