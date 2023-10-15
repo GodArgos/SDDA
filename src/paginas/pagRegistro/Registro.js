@@ -29,17 +29,12 @@ export default function Registro() {
         e.preventDefault();
 
         if (formData.password !== formData.confirmPassword) {
-            // Display an error pop-up if passwords do not match
             setPasswordError(true);
         } else {
-            // Simulate saving the data (you should send it to the server in a real app)
-            // For demonstration, we'll just log the data.
             console.log("Registration Data:", formData);
 
-            // Display the registration success pop-up
             setRegistrationSuccess(true);
 
-            // Reset the form fields to their initial state
             setFormData(initialFormData);
         }
     };
