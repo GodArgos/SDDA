@@ -12,7 +12,7 @@ const BoxDemandante = () => {
             <InfoDemandante
               nombre="Rasec"
               apellidos="Rafael"
-              genero="si ,por favor"
+              genero="owo"
               dni="69696"
             />
           </div>
