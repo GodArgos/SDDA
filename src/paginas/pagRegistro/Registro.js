@@ -13,7 +13,7 @@ const initialFormData = {
     docNumber: "",
     nombres: "",
     apellidos: "",
-    nombre_usuario: "",
+    User: "",
     phoneNumber: "",
     password: "",
     confirmPassword: "",
@@ -163,12 +163,12 @@ export default function Registro() {
                             <input
                                 className="caja"
                                 type="text"
-                                name="nombre_usuario"
-                                value={formData.nombre_usuario}
+                                name="User"
+                                value={formData.User}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        nombre_usuario: e.target.value,
+                                        User: e.target.value,
                                     })
                                 }
                                 required
