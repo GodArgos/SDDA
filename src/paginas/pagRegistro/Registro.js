@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 const initialFormData = {
     email: "",
-    docType: "DNI",
     docNumber: "",
     nombres: "",
     apellidos: "",
+    nombre_usuario: "",
     phoneNumber: "",
     password: "",
     confirmPassword: "",
@@ -70,16 +70,7 @@ export default function Registro() {
                             />
                         </div>
                         <div className="Elemento">
-                            <label>Documento:</label>
-                            <div className="documento-container">
-                                <select
-                                    className="caja-documento"
-                                    value={formData.docType}
-                                    onChange={(e) => setFormData({ ...formData, docType: e.target.value })}
-                                >
-                                    <option value="DNI">DNI</option>
-                                    <option value="CE">Carne de extranjería</option>
-                                </select>
+                            <label>Documento DNI:</label>
                                 <input
                                     className="caja caja-segunda"
                                     type="number"
@@ -88,7 +79,6 @@ export default function Registro() {
                                     onChange={(e) => setFormData({ ...formData, docNumber: e.target.value })}
                                     required
                                 />
-                            </div>
                         </div>
                         <div className="Elemento">
                             <label>Nombre:</label>
@@ -132,6 +122,17 @@ export default function Registro() {
                                 name="phoneNumber"
                                 value={formData.phoneNumber}
                                 onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+                                required
+                            />
+                        </div>
+                        <div className="Elemento">
+                            <label>Nombre de usuario:</label>
+                            <input
+                                className="caja"
+                                type="text"
+                                name="nombre_usuario"
+                                value={formData.nombre_usuario}
+                                onChange={(e) => setFormData({ ...formData, nombre_usuario: e.target.value })}
                                 required
                             />
                         </div>

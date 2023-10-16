@@ -63,14 +63,13 @@ label {
     font-size: 18px;
 }
 
-
 .caja-documento {
-    width: 30%;
+    width: 40%;
 }
 
 .caja-segunda {
     flex: 1;
-    width: 70%;
+    width: 100%;
 }
 
 .popup {
