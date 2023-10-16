@@ -1,9 +1,9 @@
-import BotonEditar from "../../../components/BotonEditar";
 import BannerPN from "../../../components/BannerPN";
-import InfoJuez from "./InfoPN";
+import InfoPN from "./InfoPN";
 
 export default function PerfilJuez(props) {
     const func = props.func;
+    const id = props.id;
 
     return (
         <>
@@ -11,15 +11,7 @@ export default function PerfilJuez(props) {
             <div className="Contenido">
                 <h1>Mi Perfil</h1>
                 <p>Informacion general del perfil del juez.</p>
-                <InfoJuez
-                    nombre="Cesar"
-                    apellidos="Rasec"
-                    genero="Masculino"
-                    dni="87654321"
-                    usuario="Rasec123"
-                />
-                <br />
-                <BotonEditar />
+                <InfoPN id={id} />
             </div>
         </>
     );

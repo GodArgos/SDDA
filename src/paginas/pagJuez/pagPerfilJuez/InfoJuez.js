@@ -3,6 +3,7 @@ import { useState } from "react";
 import BotonEditar from "../../../components/BotonEditar";
 import BotonCancelar from "../../../components/BotonCancelar";
 import BotonGuardarCambios from "../../../components/BotonGuardarCambios";
+import Popup from "../../../components/Popup";
 
 export default function InfoJuez(props) {
     const id = props.id;
@@ -18,17 +19,12 @@ export default function InfoJuez(props) {
         usuario: "JohnJames12345",
     });
     const [infoEditada, setInfoEditada] = useState({ ...info });
+    const [dniError, setDniError] = useState(false);
 
     const opcionesGenero = ["Masculino", "Femenino", "Otro"];
 
     function generoTexto(valor) {
-        if (valor === "1") {
-            return "Masculino";
-        } else if (valor === "2") {
-            return "Femenino";
-        } else {
-            return "Otro";
-        }
+        return opcionesGenero[valor-1]
     }
 
     function editarInfo() {
@@ -52,6 +48,10 @@ export default function InfoJuez(props) {
         setEditable(!editable);
         console.log("Se descartaron los cambios");
     }
+
+    const closeDNIErrorPopup = () => {
+        setDniError(false);
+    };
 
     return (
         <div className="Info">
@@ -77,13 +77,6 @@ export default function InfoJuez(props) {
                     </p>
                     <p>
                         <b>Sexo: </b>
-                        {/* <input
-                            type="text"
-                            name="sexo"
-                            placeholder={generoTexto(info.sexo)}
-                            onChange={handleChange}
-                            readOnly={!editable}
-                        /> */}
                         <select name="sexo" onChange={handleChange}>
                             {opcionesGenero.map((opcion, index) => (
                             <option key={opcion} value={index + 1}>
@@ -149,6 +142,12 @@ export default function InfoJuez(props) {
                     <p><b>Contraseña:</b> ********</p>
                     <BotonEditar func={editarInfo} />
                 </>
+            )}
+            {dniError && (
+                <Popup
+                    func={closeDNIErrorPopup}
+                    texto="Coloque un DNI válido"
+                />
             )}
         </div>
     );

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import "./Registro.css";
+import { useNavigate } from "react-router-dom";
+
 import BotonVolver from "../../components/BotonVolver";
 import BotonRegistrar from "../../components/BotonRegistrar";
+import Popup from "../../components/Popup";
+
+import "./Registro.css";
 import logo from "../../imagenes/logo.png";
-import { useNavigate } from "react-router-dom";
 
 const initialFormData = {
     email: "",
@@ -65,20 +68,30 @@ export default function Registro() {
                                 type="text"
                                 name="email"
                                 value={formData.email}
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        email: e.target.value,
+                                    })
+                                }
                                 required
                             />
                         </div>
                         <div className="Elemento">
                             <label>Nro. DNI:</label>
-                                <input
-                                    className="caja caja-segunda"
-                                    type="number"
-                                    name="docNumber"
-                                    value={formData.docNumber}
-                                    onChange={(e) => setFormData({ ...formData, docNumber: e.target.value })}
-                                    required
-                                />
+                            <input
+                                className="caja caja-segunda"
+                                type="number"
+                                name="docNumber"
+                                value={formData.docNumber}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        docNumber: e.target.value,
+                                    })
+                                }
+                                required
+                            />
                         </div>
                         <div className="Elemento">
                             <label>Nombre:</label>
@@ -87,7 +100,12 @@ export default function Registro() {
                                 type="text"
                                 name="nombres"
                                 value={formData.nombres}
-                                onChange={(e) => setFormData({ ...formData, nombres: e.target.value })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        nombres: e.target.value,
+                                    })
+                                }
                                 required
                             />
                         </div>
@@ -98,7 +116,12 @@ export default function Registro() {
                                 type="text"
                                 name="apellidos"
                                 value={formData.apellidos}
-                                onChange={(e) => setFormData({ ...formData, apellidos: e.target.value })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        apellidos: e.target.value,
+                                    })
+                                }
                                 required
                             />
                         </div>
@@ -107,7 +130,12 @@ export default function Registro() {
                             <select
                                 className="caja-documento"
                                 value={formData.sexo}
-                                onChange={(e) => setFormData({ ...formData, sexo: parseInt(e.target.value) })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        sexo: parseInt(e.target.value),
+                                    })
+                                }
                             >
                                 <option value={1}>Masculino</option>
                                 <option value={2}>Femenino</option>
@@ -121,7 +149,12 @@ export default function Registro() {
                                 type="number"
                                 name="phoneNumber"
                                 value={formData.phoneNumber}
-                                onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        phoneNumber: e.target.value,
+                                    })
+                                }
                                 required
                             />
                         </div>
@@ -132,7 +165,12 @@ export default function Registro() {
                                 type="text"
                                 name="nombre_usuario"
                                 value={formData.nombre_usuario}
-                                onChange={(e) => setFormData({ ...formData, nombre_usuario: e.target.value })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        nombre_usuario: e.target.value,
+                                    })
+                                }
                                 required
                             />
                         </div>
@@ -144,7 +182,12 @@ export default function Registro() {
                                 name="password"
                                 minLength={8}
                                 value={formData.password}
-                                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        password: e.target.value,
+                                    })
+                                }
                                 required
                             />
                         </div>
@@ -156,37 +199,36 @@ export default function Registro() {
                                 name="confirmPassword"
                                 minLength={8}
                                 value={formData.confirmPassword}
-                                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        confirmPassword: e.target.value,
+                                    })
+                                }
                                 required
                             />
                         </div>
-                    
+
                         <div className="botones">
                             <BotonVolver onClick={volverLogin} />
-                            <button type="submit" className="BotonRegistrar">Registrar</button>
+                            <button type="submit" className="BotonRegistrar">
+                                Registrar
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
             {registrationSuccess && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <span onClick={closePopup} className="close-popup">
-                            &times;
-                        </span>
-                        <p>Registro exitoso. ¡Bienvenido!</p>
-                    </div>
-                </div>
+                <Popup
+                    func={closePopup}
+                    texto="Registro exitoso. ¡Bienvenido!"
+                />
             )}
             {passwordError && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <span onClick={closePasswordErrorPopup} className="close-popup">
-                            &times;
-                        </span>
-                        <p>Las contraseñas no coinciden. Por favor, inténtalo de nuevo.</p>
-                    </div>
-                </div>
+                <Popup
+                    func={closePasswordErrorPopup}
+                    texto="Las contraseñas no coinciden. Por favor, inténtelo de nuevo."
+                />
             )}
         </div>
     );
