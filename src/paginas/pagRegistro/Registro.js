@@ -70,7 +70,7 @@ export default function Registro() {
                             />
                         </div>
                         <div className="Elemento">
-                            <label>Documento DNI:</label>
+                            <label>Nro. DNI:</label>
                                 <input
                                     className="caja caja-segunda"
                                     type="number"
