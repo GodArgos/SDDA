@@ -24,9 +24,9 @@
 }
 
 .caja {
-    margin-bottom: 10px;
+    margin-bottom: 1%;
     border-radius: 5px;
-    height: 30px;
+    height: 8%;
 }
 
 .logo-image {
@@ -60,7 +60,7 @@ label {
 
 .titulo {
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 

@@ -9,10 +9,12 @@ const initialFormData = {
     email: "",
     docType: "DNI",
     docNumber: "",
-    name: "",
+    nombres: "",
+    apellidos: "",
     phoneNumber: "",
     password: "",
     confirmPassword: "",
+    sexo: 1, // Inicialmente, establece el valor predeterminado como masculino (1).
 };
 
 export default function Registro() {
@@ -20,6 +22,7 @@ export default function Registro() {
     const [formData, setFormData] = useState(initialFormData);
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+    const [formValid, setFormValid] = useState(false);
 
     const volverLogin = () => {
         navigate("/");
@@ -32,9 +35,7 @@ export default function Registro() {
             setPasswordError(true);
         } else {
             console.log("Registration Data:", formData);
-
             setRegistrationSuccess(true);
-
             setFormData(initialFormData);
         }
     };
@@ -65,6 +66,7 @@ export default function Registro() {
                                 name="email"
                                 value={formData.email}
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                required
                             />
                         </div>
                         <div className="Elemento">
@@ -84,18 +86,43 @@ export default function Registro() {
                                     name="docNumber"
                                     value={formData.docNumber}
                                     onChange={(e) => setFormData({ ...formData, docNumber: e.target.value })}
+                                    required
                                 />
                             </div>
                         </div>
                         <div className="Elemento">
-                            <label>Nombre completo:</label>
+                            <label>Nombre:</label>
                             <input
                                 className="caja"
                                 type="text"
-                                name="name"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                name="nombres"
+                                value={formData.nombres}
+                                onChange={(e) => setFormData({ ...formData, nombres: e.target.value })}
+                                required
                             />
+                        </div>
+                        <div className="Elemento">
+                            <label>Apellidos:</label>
+                            <input
+                                className="caja"
+                                type="text"
+                                name="apellidos"
+                                value={formData.apellidos}
+                                onChange={(e) => setFormData({ ...formData, apellidos: e.target.value })}
+                                required
+                            />
+                        </div>
+                        <div className="Elemento">
+                            <label>Sexo:</label>
+                            <select
+                                className="caja-documento"
+                                value={formData.sexo}
+                                onChange={(e) => setFormData({ ...formData, sexo: parseInt(e.target.value) })}
+                            >
+                                <option value={1}>Masculino</option>
+                                <option value={2}>Femenino</option>
+                                <option value={3}>Otro</option>
+                            </select>
                         </div>
                         <div className="Elemento">
                             <label>Número de celular:</label>
@@ -105,6 +132,7 @@ export default function Registro() {
                                 name="phoneNumber"
                                 value={formData.phoneNumber}
                                 onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+                                required
                             />
                         </div>
                         <div className="Elemento">
@@ -116,6 +144,7 @@ export default function Registro() {
                                 minLength={8}
                                 value={formData.password}
                                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                                required
                             />
                         </div>
                         <div className="Elemento">
@@ -127,8 +156,10 @@ export default function Registro() {
                                 minLength={8}
                                 value={formData.confirmPassword}
                                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                                required
                             />
                         </div>
+                    
                         <div className="botones">
                             <BotonVolver onClick={volverLogin} />
                             <button type="submit" className="BotonRegistrar">Registrar</button>
