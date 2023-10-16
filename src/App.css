@@ -212,3 +212,7 @@ ul {
 .Info p {
     margin: 1px;
 }
+
+.Info input::placeholder {
+    color: black;
+}
