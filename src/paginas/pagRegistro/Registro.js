@@ -42,14 +42,13 @@ export default function Registro() {
             return;
         }
 
-        // Elimina el campo "confirmPassword" antes de enviar la solicitud al servidor
         const { confirmPassword, ...formDataToSend } = formData;
 
         console.log("Valores que se enviarán al servidor:", formDataToSend);
 
         fetch('http://localhost:3001/register', {
             method: 'POST',
-            body: JSON.stringify(formDataToSend), // Enviar formDataToSend en lugar de formData
+            body: JSON.stringify(formDataToSend), 
             headers: {
                 'Content-Type': 'application/json',
             },
