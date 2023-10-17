@@ -5,18 +5,18 @@ import logo from "../../imagenes/logo.png";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-    const [user, setUser] = useState(""); 
-    const [passw, setPassw] = useState(""); 
+    const [username, setusername] = useState(""); 
+    const [password, setpassword] = useState(""); 
 
     const handleLogin = () => {
         // Aquí debes enviar los datos al servidor
         const data = {
-            User: user,
-            passw: passw
+            username: username,
+            password: password
         };
 
         // Realizar una solicitud POST al servidor
-        fetch('/url-del-servidor', {
+        fetch('/https://localocalhost:3001/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,10 +45,10 @@ export default function Login() {
                         <input
                             className="caja"
                             type="text"
-                            name="User"
-                            id="User"
-                            value={user}
-                            onChange={(e) => setUser(e.target.value)}
+                            name="username"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setusername(e.target.value)}
                         />
                     </div>
                     <div className="Elemento">
@@ -56,10 +56,10 @@ export default function Login() {
                         <input
                             className="caja"
                             type="password"
-                            name="passw"
-                            id="passw"
-                            value={passw}
-                            onChange={(e) => setPassw(e.target.value)}
+                            name="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setpassword(e.target.value)}
                         />
                     </div>
                     <div className="Elemento">
