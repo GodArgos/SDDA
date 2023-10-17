@@ -9,15 +9,14 @@ import "./Registro.css";
 import logo from "../../imagenes/logo.png";
 
 const initialFormData = {
-    email: "",
-    docNumber: "",
-    nombres: "",
-    apellidos: "",
-    User: "",
-    phoneNumber: "",
+    dni: "",
+    names: "",
+    lastnames: "",
+    sex: 1, // Inicialmente, establece el valor predeterminado como masculino (1).
+    username: "",
     password: "",
     confirmPassword: "",
-    sexo: 1, // Inicialmente, establece el valor predeterminado como masculino (1).
+    email: "",
 };
 
 export default function Registro() {
@@ -31,16 +30,38 @@ export default function Registro() {
         navigate("/");
     };
 
+    function handleError(error) {
+        console.log('Ocurrió un error:', error);
+    }
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
         if (formData.password !== formData.confirmPassword) {
             setPasswordError(true);
-        } else {
-            console.log("Registration Data:", formData);
+            return;
+        }
+
+        fetch('http://localhost:3001/register', {
+            method: 'POST',
+            body: JSON.stringify(formData), // Enviar formData en lugar de un objeto vacío
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error en la solicitud');
+            }
+        })
+        .then((data) => {
+            console.log("Registro exitoso:", data);
             setRegistrationSuccess(true);
             setFormData(initialFormData);
-        }
+        })
+        .catch(handleError);
     };
 
     const closePopup = () => {
@@ -82,12 +103,12 @@ export default function Registro() {
                             <input
                                 className="caja caja-segunda"
                                 type="number"
-                                name="docNumber"
-                                value={formData.docNumber}
+                                name="dni"
+                                value={formData.dni}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        docNumber: e.target.value,
+                                        dni: e.target.value,
                                     })
                                 }
                                 required
@@ -98,12 +119,12 @@ export default function Registro() {
                             <input
                                 className="caja"
                                 type="text"
-                                name="nombres"
-                                value={formData.nombres}
+                                name="names"
+                                value={formData.names}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        nombres: e.target.value,
+                                        names: e.target.value,
                                     })
                                 }
                                 required
@@ -114,12 +135,12 @@ export default function Registro() {
                             <input
                                 className="caja"
                                 type="text"
-                                name="apellidos"
-                                value={formData.apellidos}
+                                name="lastnames"
+                                value={formData.lastnames}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        apellidos: e.target.value,
+                                        lastnames: e.target.value,
                                     })
                                 }
                                 required
@@ -129,11 +150,11 @@ export default function Registro() {
                             <label>Sexo:</label>
                             <select
                                 className="caja-documento"
-                                value={formData.sexo}
+                                value={formData.sex}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        sexo: parseInt(e.target.value),
+                                        sex: parseInt(e.target.value),
                                     })
                                 }
                             >
@@ -142,33 +163,18 @@ export default function Registro() {
                                 <option value={3}>Otro</option>
                             </select>
                         </div>
-                        <div className="Elemento">
-                            <label>Número de celular:</label>
-                            <input
-                                className="caja"
-                                type="number"
-                                name="phoneNumber"
-                                value={formData.phoneNumber}
-                                onChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        phoneNumber: e.target.value,
-                                    })
-                                }
-                                required
-                            />
-                        </div>
+                        
                         <div className="Elemento">
                             <label>Nombre de usuario:</label>
                             <input
                                 className="caja"
                                 type="text"
-                                name="User"
-                                value={formData.User}
+                                name="username"
+                                value={formData.username}
                                 onChange={(e) =>
                                     setFormData({
                                         ...formData,
-                                        User: e.target.value,
+                                        username: e.target.value,
                                     })
                                 }
                                 required
