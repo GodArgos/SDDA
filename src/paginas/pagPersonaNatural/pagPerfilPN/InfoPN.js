@@ -40,12 +40,25 @@ export default function InfoPN(props){
     };
 
     function guardarCambios() {
-        if (infoEditada.dni.length !== 8) {
+        if (infoEditada.dni.length !== 8 && infoEditada.dni.length !== 0) {
             setDniError(true);
-        } else {
-            setInfo({ ...infoEditada });
+        } else if(infoEditada !== info){
+            console.log("Se cambió la info:");
+            fetch("http://localhost:3001/modify-profile-person", {
+                method: 'POST', 
+                headers: {"Content-type": "application/json",},
+                body: JSON.stringify(infoEditada)
+            })
+                .then(response => response.json())
+                .then(procesarDatoGuardado)
+                .then(handleError)
+            usuario.username = infoEditada.username;
+            usuario.password = infoEditada.password;
             setEditable(!editable);
             console.log("Se han guardado los cambios");
+        } else {
+            setEditable(!editable);
+            console.log("No se han hecho cambios");
         }
     }
 
@@ -57,18 +70,20 @@ export default function InfoPN(props){
 
     const closeDNIErrorPopup = () => {
         setDniError(false);
-    };
+    }
+
+    function procesarDatoGuardado(data){
+        const direc = info.direccionJuzgado
+        setInfo({...data, "direccionJuzgado": direc });
+        setInfoEditada( {...data, "direccionJuzgado": direc });
+    }
 
     function procesarDato(data){
-        console.log("Se recibio la siguiente info")
-        console.log(data);
         setInfo(data);
+        setInfoEditada(data);
     }
 
     useEffect(() => {
-        console.log("Inicio de post");
-        console.log(usuario);
-        console.log(JSON.stringify(usuario));
         fetch("http://localhost:3001/profile-person", {
             method: 'POST', 
             headers: {"Content-type": "application/json",},
@@ -80,7 +95,9 @@ export default function InfoPN(props){
     }, []);
 
     function handleError(error){
-        console.log("Ocurrio un error:" + error);
+        if(error != null){
+            console.log("Ocurrio un error:" + error);
+        }
     }
 
     return(
@@ -135,7 +152,13 @@ export default function InfoPN(props){
                         />
                     </p>
                     <p>
-                        <b>Contraseña: </b> ********
+                        <b>Contraseña: </b>
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder={"*******"}
+                                onChange={handleChange}
+                            />
                     </p>
                     <br />
                     <BotonGuardarCambios func={guardarCambios} />
