@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import BotonEditar from "../../../components/BotonEditar";
 import BotonCancelar from "../../../components/BotonCancelar";
@@ -6,17 +6,21 @@ import BotonGuardarCambios from "../../../components/BotonGuardarCambios";
 import Popup from "../../../components/Popup";
 
 export default function InfoJuez(props) {
-    const id = props.id;
+    const usuario = {
+        username: "juez_carlos",
+        password: "password123"
+    }
     const [editable, setEditable] = useState(false);
     const [info, setInfo] = useState({
-        id: { id },
-        nombre: "John",
-        apellidos: "James Vergara",
-        sexo: "1",
-        dni: "12345678",
-        nroCol: "12345",
-        dirJuz: "Av. Consitucion",
-        usuario: "JohnJames12345",
+        id: "",
+        username: "",
+        password: "",
+        nombres: "",
+        apellidos: "",
+        sexoId: "",
+        dni: "",
+        nro_colegiatura: "",
+        direrccionJuzgado: "",
     });
     const [infoEditada, setInfoEditada] = useState({ ...info });
     const [dniError, setDniError] = useState(false);
@@ -53,6 +57,30 @@ export default function InfoJuez(props) {
         setDniError(false);
     };
 
+    function procesarDato(data){
+        console.log("Se recibio la siguiente info")
+        console.log(data);
+        setInfo(data);
+    }
+
+    useEffect(() => {
+        console.log("Inicio de post");
+        console.log(usuario);
+        console.log(JSON.stringify(usuario));
+        fetch("http://localhost:3001/profile-judge", {
+            method: 'POST', 
+            headers: {"Content-type": "application/json",},
+            body: JSON.stringify(usuario)
+        })
+            .then(response=> response.json())
+            .then(procesarDato)
+            .then(handleError)
+    }, []);
+
+    function handleError(error){
+        console.log("Ocurrio un error:" + error);
+    }
+
     return (
         <div className="Info">
             {editable ? (
@@ -61,8 +89,8 @@ export default function InfoJuez(props) {
                         <b>Nombre: </b>
                         <input
                             type="text"
-                            name="nombre"
-                            placeholder={info.nombre}
+                            name="nombres"
+                            placeholder={info.nombres}
                             onChange={handleChange}
                         />
                     </p>
@@ -77,7 +105,7 @@ export default function InfoJuez(props) {
                     </p>
                     <p>
                         <b>Sexo: </b>
-                        <select name="sexo" onChange={handleChange}>
+                        <select name="sexoId" onChange={handleChange}>
                             {opcionesGenero.map((opcion, index) => (
                             <option key={opcion} value={index + 1}>
                                 {opcion}
@@ -99,7 +127,7 @@ export default function InfoJuez(props) {
                         <input
                             type="text"
                             name="nroCol"
-                            placeholder={info.nroCol}
+                            placeholder={info.nro_colegiatura}
                             onChange={handleChange}
                         />
                     </p>
@@ -108,7 +136,7 @@ export default function InfoJuez(props) {
                         <input
                             type="text"
                             name="dirJuz"
-                            placeholder={info.dirJuz}
+                            placeholder={info.direccionJuzgado}
                             onChange={handleChange}
                         />
                     </p>
@@ -117,8 +145,8 @@ export default function InfoJuez(props) {
                         <b>Usuario: </b>
                         <input
                             type="text"
-                            name="usuario"
-                            placeholder={info.usuario}
+                            name="username"
+                            placeholder={info.username}
                             onChange={handleChange}
                         />
                     </p>
@@ -131,14 +159,14 @@ export default function InfoJuez(props) {
                 </>
             ) : (
                 <>
-                    <p><b>Nombre:</b> {info.nombre}</p>
+                    <p><b>Nombre:</b> {info.nombres}</p>
                     <p><b>Apellidos:</b> {info.apellidos}</p>
-                    <p><b>Sexo:</b> {generoTexto(info.sexo)}</p>
+                    <p><b>Sexo:</b> {generoTexto(info.sexoId)}</p>
                     <p><b>DNI:</b> {info.dni}</p>
-                    <p><b>Número de Colegiatura:</b> {info.nroCol}</p>
-                    <p><b>Dirección de Juzgado:</b> {info.dirJuz}</p>
+                    <p><b>Número de Colegiatura:</b> {info.nro_colegiatura}</p>
+                    <p><b>Dirección de Juzgado:</b> {info.direccionJuzgado}</p>
                     <br/>
-                    <p><b>Usuario:</b> {info.usuario}</p>
+                    <p><b>Usuario:</b> {info.username}</p>
                     <p><b>Contraseña:</b> ********</p>
                     <BotonEditar func={editarInfo} />
                 </>
