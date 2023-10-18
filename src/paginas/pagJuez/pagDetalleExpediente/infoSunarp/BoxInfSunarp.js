@@ -1,15 +1,11 @@
 import InfoInfSunarp from "./InfoInfSunarp";
 
-export default function BoxInfSunarp() {
+export default function BoxInfSunarp(props) {
     return (
         <div id="InfSunarp">
             <div className="Box">
                 <h3>Formulario Sunarp:</h3>
-                <InfoInfSunarp
-                    propiedad="7"
-                    vehiculo="789625"
-                    observacion="owowowowwo"
-                />
+                <InfoInfSunarp form={props.form}/>
             </div>
         </div>
     );

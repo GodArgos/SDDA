@@ -1,19 +1,11 @@
 import InfoInfReniec from "./InfoInfReniec";
 
-export default function BoxInfReniec() {
+export default function BoxInfReniec(props) {
     return (
         <div id="InfReniec">
             <div className="Box">
                 <h3>Formulario Reniec:</h3>
-                <InfoInfReniec
-                    nombres="amigo"
-                    apellidos="ya no puedo"
-                    dni="7854100"
-                    direccion="av. que ya se acabe porfa"
-                    sexo="no"
-                    civil="matenme"
-                    grado="owo"
-                />
+                <InfoInfReniec form={props.form}/>
             </div>
         </div>
     );

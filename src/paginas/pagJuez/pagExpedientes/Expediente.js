@@ -3,21 +3,29 @@ import { useNavigate } from "react-router-dom";
 
 import BotonBuscar from "../../../components/BotonBuscar";
 import BannerJuez from "../../../components/BannerJuez";
+import Popup from "../../../components/Popup";
 import "./Expediente.css";
 
 export default function Expediente(props) {
     const navigate = useNavigate();
     const [dni, setDni] = useState("");
+    const [dniError, setDniError] = useState(false);
 
     const onChangeHandler = (e) => {
         setDni(e.target.value);
-        console.log(dni);
     };
 
     const handleOnClick = () => {
-        navigate("/J/expedientes/" + dni);
-        console.log("hola");
+        if (dni.length !== 8 && dni.length !== 0) {
+            setDniError(true);
+        } else {
+            navigate("/J/expedientes/" + dni);
+        }
     };
+
+    const closeDNIErrorPopup = () => {
+        setDniError(false);
+    }
 
     const func = props.func;
 
@@ -42,6 +50,12 @@ export default function Expediente(props) {
                     <BotonBuscar func={handleOnClick} />
                 </div>
             </div>
+            {dniError && (
+                <Popup
+                    func={closeDNIErrorPopup}
+                    texto="Coloque un DNI válido"
+                />
+            )}
         </>
     );
 }
