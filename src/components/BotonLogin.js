@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import React from "react";
 
 export default function BotonLogin(props) {
+    const { onClick } = props;
 
-    const {url} = props;
-
-    return(
-        <Link to={url} className="BotonLogin">Login</Link>
+    return (
+        <button className="BotonLogin" onClick={onClick}>
+            <span>Login</span></button>
     );
 }

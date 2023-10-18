@@ -150,14 +150,14 @@ ul {
 .BotonLogin{
     background-color: #BC4745;
     color: #FFFFFF;
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
     padding: 8px 35px;
     width: 30%;
     margin: 0 auto;
     display: block;
     cursor: pointer;
-    text-align: center;
+    align-items: center;
     text-decoration: none;
 }
 
