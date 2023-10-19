@@ -5,6 +5,6 @@ export default function BotonLogin(props) {
 
     return (
         <button className="BotonLogin" onClick={onClick}>
-            <span>Login</span></button>
+            <span >Login</span></button>
     );
 }

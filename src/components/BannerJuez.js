@@ -12,6 +12,8 @@ import logout from "../imagenes/logout.png";
 export default function Banner(props) {
     const func = props.func;
 
+    
+
     return (
         <div className="Banner">
             <Logo />
@@ -55,6 +57,7 @@ export default function Banner(props) {
                         imagen={logout}
                         texto="Cerrar sesión"
                         func={func}
+ 
                     />
                 </div>
             </div>
