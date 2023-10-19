@@ -95,7 +95,7 @@ export default function InfoPN(props){
             .then(response=> response.json())
             .then(procesarDato)
             .then(handleError)
-    });
+             }, []);
 
     function handleError(error){
         if(error != null){

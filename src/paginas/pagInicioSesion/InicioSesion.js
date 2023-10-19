@@ -35,9 +35,7 @@ export default function Login() {
             if (result.loginSuccess) {
                 console.log("Inicio de sesión exitoso. Usuario:", result.user);
                 setUser(result.user);
-    
-                // Almacenar la información del usuario en localStorage
-                localStorage.setItem('user', JSON.stringify(result.user));
+  
     
                 if (result.user.nro_colegiatura) { 
                     console.log("Navegando a /j");
