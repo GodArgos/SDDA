@@ -14,45 +14,32 @@ export default function DetalleExpediente(props) {
     const { dni } = useParams();
     const req = {"dni": dni};
 
-    const [info, setInfo] = useState({
-    });
-    const [reniecLoaded, setReniecLoaded] = useState(false);
-    const [sunarpLoaded, setSunarpLoaded] = useState(false);
-    const [minTrabajoLoaded, setMinTrabajoLoaded] = useState(false);
-    const [existeExp, setExisteExp] = useState(true);
+    const [info, setInfo] = useState({});
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch("http://localhost:3001/search-expedient", {
+                method: 'POST', 
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify(req)
+            });
+            if (!response.ok) {
+                throw new Error('La solicitud no se completó con éxito.');
+            }
+            const data = await response.json();
+            if(data !== null){
+                setInfo(data);
+                setIsLoaded(true);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
     useEffect(() => {
-        fetch("http://localhost:3001/search-expedient", {
-            method: 'POST', 
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify(req)
-        })
-            .then(response=> response.json())
-            .then(procesarDato)
-            .then(handleError)
-            .then(loadInfo)
+        fetchData();
     }, []);
-
-    function loadInfo(){
-        sleep(1000)
-        setReniecLoaded(true);
-        setSunarpLoaded(true);
-        setMinTrabajoLoaded(true); 
-    }
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    function procesarDato(data){
-        setInfo(data);
-    }
-
-    function handleError(error){
-        if(error != null){
-            console.log("Ocurrio un error:" + error);
-        }
-    }
 
     return (
         <>
@@ -61,33 +48,37 @@ export default function DetalleExpediente(props) {
                 <h1>
                     Expediente <InfoDetalleExpediente dni={dni} />
                 </h1>
-                { existeExp? 
-                    <p>
-                        En esta pestaña encontrará toda la información referida al
-                        expediente.
-                    </p> :
+                { info === null ? 
+                    <>
+                        <p>
+                            En esta pestaña encontrará toda la información referida al
+                            expediente.
+                        </p> 
+                        {setIsLoaded && (
+                            <div className="InfReniec">
+                                <BoxInfReniec form={info.FormRENIEC}/>
+                            </div>
+                        )}
+        
+                        {setIsLoaded && (
+                            <div className="InfSunarp">
+                                <BoxInfSunarp form={info.FormSUNARP}/>
+                            </div>
+                        )}
+        
+                        {setIsLoaded && (
+                            <div className="InfTrabajo">
+                                <BoxInfTrabajo form={info.FormMINTRABAJO}/>
+                            </div>
+                        )}
+                    </>
+                    :
                     <p>
                         No existe un expediente con dicho dni.
                     </p>
                 }
 
-                {reniecLoaded && (
-                    <div className="InfReniec">
-                        <BoxInfReniec form={info.FormRENIEC}/>
-                    </div>
-                )}
-
-                {sunarpLoaded && (
-                    <div className="InfSunarp">
-                        <BoxInfSunarp form={info.FormSUNARP}/>
-                    </div>
-                )}
-
-                {minTrabajoLoaded && (
-                    <div className="InfTrabajo">
-                        <BoxInfTrabajo form={info.FormMINTRABAJO}/>
-                    </div>
-                )}
+                
 
                 {/* <div className="InfSecretario">
                     <BoxInfSecretario />

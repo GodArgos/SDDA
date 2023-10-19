@@ -1,11 +1,11 @@
 export default function InfoDemanda(props){
+    const infoDemanda = props.infoDemanda;
+
     return(
         <div className="InfoDemanda">
-            <p><b>Nro Solicitud:</b> {props.solicitud}</p>
-            <p><b>Demandante:</b> {props.demandante}</p>
-            <p><b>Demandado:</b> {props.demandado}</p>
-            <p><b>Tipo:</b> {props.tipo}</p>
-            
+            <p><b>Nro Solicitud:</b> {infoDemanda.nro_demanda}</p>
+            <p><b>Demandante:</b> {infoDemanda.PersonaNatural.nombreCompleto}</p>
+            <p><b>Demandado:</b> {infoDemanda.Demandado.nombreCompleto}</p>            
         </div>
     )
 }

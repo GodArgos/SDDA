@@ -2,19 +2,17 @@ import InfoDemanda from "./InfoDemanda";
 import BotonVerDetalle from "../../../components/BotonVerDetalle";
 import "./BoxDemanda.css";
 
-export default function BoxDemanda() {
-    const id = 1;
+export default function BoxDemanda(props) {
+    const id = props.infoDemanda.id;
     const url = "/J/demandas/" + id;
+    const infoDemanda = props.infoDemanda;
 
     return (
         <div className="Box" id="DemandaJuez">
             <div className="BoxDemandaText">
-                <InfoDemanda
-                    solicitud="1526"
-                    demandante="Marco Quispe"
-                    demandado="Erick Valderrama"
-                    tipo="Obligación de dar suma de dinero"
-                />
+                <div className="InfoDemanda">
+                    <InfoDemanda infoDemanda={infoDemanda} />   
+                </div>
             </div>
             <div className="BoxDemandaBoton">
                 <BotonVerDetalle url={url} />
