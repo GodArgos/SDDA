@@ -1,22 +1,33 @@
-.DescargaPDF {
-    margin-top: 4%;
-    margin-bottom: 4%;
+/* CSS de los boxes para descargar y subir PDFs */
+#LD-PDF {
+    display: flex;
+    margin: 2% 0;
+    padding-top: 2%;
+    height: fit-content;
 }
 
-.SubidaPDF {
-    margin-top: 4%;
-    margin-bottom: 4%;
+.InfoLD {
+    width: 80%;
+    height: 100%;
 }
 
 .BotonLD {
-    margin-left: 5%;
-    width: 15%;
-    height: 12%;
+    display: flex;
+    width: 20%;
+    height: 100%;
+    margin-top: 1.2rem;
+    justify-content: center;
+}
+
+.BotonD {
+    max-width: 60%;
+    padding: 3% 15%;
     background-color: #BC4745;
     color: white;
     border-width: 0px;
-    border-radius: 2px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: normal;
 }
 
 #subirDemanda {
@@ -26,20 +37,19 @@
 .custom-subirDemanda {
     background-color: #BC4745;
     color: white;
-    margin-left: 3vw;
-    display: inline-block;
     height: 100%;
-    width: 15%;
+    padding: 3% 15%;
     text-align: center;
     font-weight: 500;
     border-width: 0px;
-    border-radius: 2px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
-#enviar {
-    height: 5%;
-    margin: 0 42%;
+/* CSS para enviar el formulario rellenado */
+
+.RequisitosEnviar {
+    text-align: center;
 }
 
 .divCaptcha {
@@ -54,4 +64,14 @@
     background: #EEE;
     padding: 0.5rem 2rem;
     margin-bottom: 2%;
+}
+
+.BotonEnviarF {
+    padding: 1% 5%;
+    background-color: #BC4745;
+    color: white;
+    border-width: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: normal;
 }
