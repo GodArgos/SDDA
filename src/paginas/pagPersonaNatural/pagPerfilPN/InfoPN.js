@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useContext,useState, useEffect } from "react";
+import UserContext from "../../../UserContext";
 
 import BotonEditar from "../../../components/BotonEditar";
 import BotonCancelar from "../../../components/BotonCancelar";
@@ -6,12 +7,10 @@ import BotonGuardarCambios from "../../../components/BotonGuardarCambios";
 import Popup from "../../../components/Popup";
 
 export default function InfoPN(props){
-    const usuario = {
-        username: "carlos.gonzales",
-        password: "password123"
-    }
+    const { user } = useContext(UserContext);
+
     const [editable, setEditable] = useState(false);
-    const [info, setInfo] = useState({
+    const [info, setInfo] = useState({ 
         id: "",
         username:"",
         password:"",
@@ -52,8 +51,8 @@ export default function InfoPN(props){
                 .then(response => response.json())
                 .then(procesarDatoGuardado)
                 .then(handleError)
-            usuario.username = infoEditada.username;
-            usuario.password = infoEditada.password;
+            user.username = infoEditada.username;
+            user.password = infoEditada.password;
             setEditable(!editable);
             console.log("Se han guardado los cambios");
         } else {
@@ -84,15 +83,19 @@ export default function InfoPN(props){
     }
 
     useEffect(() => {
+        const requestData = {
+            username: user.username,
+            password: user.password,
+        };
         fetch("http://localhost:3001/profile-person", {
             method: 'POST', 
             headers: {"Content-type": "application/json",},
-            body: JSON.stringify(usuario)
+            body: JSON.stringify(requestData)
         })
             .then(response=> response.json())
             .then(procesarDato)
             .then(handleError)
-    }, []);
+    });
 
     function handleError(error){
         if(error != null){

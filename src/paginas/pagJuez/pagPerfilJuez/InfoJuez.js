@@ -99,7 +99,7 @@ export default function InfoJuez(props) {
             username: user.username,
             password: user.password,
         };
-        console.log(requestData)
+        
         fetch("http://localhost:3001/profile-judge", {
             method: 'POST', 
             headers: {"Content-type": "application/json",},
