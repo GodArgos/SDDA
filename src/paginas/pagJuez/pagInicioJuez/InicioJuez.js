@@ -1,8 +1,9 @@
 import BannerJuez from "../../../components/BannerJuez";
+import React from 'react';
+
 
 export default function InicioPN(props) {
     const func = props.func;
-
     return (
         <>
             <BannerJuez func={func} />

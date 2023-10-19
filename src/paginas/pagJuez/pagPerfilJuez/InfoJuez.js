@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useContext,useState, useEffect } from "react";
+import UserContext from "../../../UserContext";
 
 import BotonEditar from "../../../components/BotonEditar";
 import BotonCancelar from "../../../components/BotonCancelar";
@@ -6,10 +7,9 @@ import BotonGuardarCambios from "../../../components/BotonGuardarCambios";
 import Popup from "../../../components/Popup";
 
 export default function InfoJuez(props) {
-    const usuario = {
-        username: "juez_carlos",
-        password: "password123"
-    }
+    const { user } = useContext(UserContext);
+    
+
     const [editable, setEditable] = useState(false);
     const [info, setInfo] = useState({
         id: null,
@@ -60,8 +60,8 @@ export default function InfoJuez(props) {
                 .then(response => response.json())
                 .then(procesarDatoGuardado)
                 .then(handleError)
-            usuario.username = infoEditada.username;
-            usuario.password = infoEditada.password;
+            user.username = infoEditada.username;
+            user.password = infoEditada.password;
             setEditable(!editable);
             console.log("Se han guardado los cambios");
         } else {
@@ -92,10 +92,15 @@ export default function InfoJuez(props) {
     }
 
     useEffect(() => {
+        const requestData = {
+            username: user.username,
+            password: user.password,
+        };
+        console.log(requestData)
         fetch("http://localhost:3001/profile-judge", {
             method: 'POST', 
             headers: {"Content-type": "application/json",},
-            body: JSON.stringify(usuario)
+            body: JSON.stringify(requestData)
         })
             .then(response=> response.json())
             .then(procesarDato)

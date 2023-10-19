@@ -1,7 +1,9 @@
+import UserContext from "./UserContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import "./App.css";
+
 
 /* Vista de Inicio de sesión y Registro */
 import Login from "./paginas/pagInicioSesion/InicioSesion";
@@ -21,25 +23,20 @@ import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
 import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDemanda";
 
 function App() {
-    /* Este vendría a ser el usuario que está ingresando a la página, en permission se ve el rol que ocupa, 
-    puede ser "Juez" o "PN". */
-    const [user, setUser] = useState({
-        id: 1,
-        name: "Miguel",
-        permissions: ["Juez", "PN"],
-    });
 
-    const login = () => {
-        setUser({ id: 1, name: "Miguel", permissions: ["PN"] });
-    };
+    const [user, setUser] = useState(null);
 
     const logout = () => {
         setUser(null);
         console.log("El usuario ha cerrado sesion.");
     };
 
+    const login = () => {
+        setUser({ id: 1, name: "Miguel", permissions: ["PN"] });
+    };
+
     return (
-        //Rutas de Juez
+        <UserContext.Provider value={{ user, setUser }}>
         <div className="Principal">
             <BrowserRouter>
                 <Routes>
@@ -47,12 +44,15 @@ function App() {
                     <Route path="/" element={<Login />} />
                     <Route path="/registro" element={<Registro />} />
                     {/* Ruta protegida de las vistas de Juez */}
+
+                    
                     <Route
+                    
                         element={
+                        
                             <ProtectedRoute
-                                isAllowed={
-                                    !!user && user.permissions.includes("Juez")
-                                }
+                            
+                            isAllowed={!!user && !!user.nro_colegiatura}
                             />
                         }
                     >
@@ -93,9 +93,7 @@ function App() {
                     <Route
                         element={
                             <ProtectedRoute
-                                isAllowed={
-                                    !!user && user.permissions.includes("PN")
-                                }
+                            isAllowed={!!user && !user.nro_colegiatura}
                             />
                         }
                     >
@@ -126,7 +124,13 @@ function App() {
                     />
                 </Routes>
             </BrowserRouter>
+            
+
+           
+        
         </div>
+        </UserContext.Provider>
+        
     );
 }
 
