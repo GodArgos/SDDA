@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import BannerJuez from "../../../components/BannerJuez";
@@ -6,8 +6,6 @@ import InfoDetalleExpediente from "./InfoDetalleExpediente";
 import BoxInfReniec from "./infoReniec/BoxInfReniec";
 import BoxInfSunarp from "./infoSunarp/BoxInfSunarp";
 import BoxInfTrabajo from "./infoTrabajo/BoxInfTrabajo";
-import { useEffect } from "react";
-/* import BoxInfSecretario from "./infoSecretario/BoxInfSecretario"; */
 
 export default function DetalleExpediente(props) {
     const func = props.func;
@@ -48,28 +46,24 @@ export default function DetalleExpediente(props) {
                 <h1>
                     Expediente <InfoDetalleExpediente dni={dni} />
                 </h1>
-                { info === null ? 
+                { info !== null ? 
                     <>
                         <p>
                             En esta pestaña encontrará toda la información referida al
                             expediente.
                         </p> 
-                        {setIsLoaded && (
-                            <div className="InfReniec">
-                                <BoxInfReniec form={info.FormRENIEC}/>
-                            </div>
-                        )}
-        
-                        {setIsLoaded && (
-                            <div className="InfSunarp">
-                                <BoxInfSunarp form={info.FormSUNARP}/>
-                            </div>
-                        )}
-        
-                        {setIsLoaded && (
-                            <div className="InfTrabajo">
-                                <BoxInfTrabajo form={info.FormMINTRABAJO}/>
-                            </div>
+                        {isLoaded && (
+                            <>
+                                <div className="InfReniec">
+                                    <BoxInfReniec form={info.FormRENIEC}/>
+                                </div>
+                                <div className="InfSunarp">
+                                    <BoxInfSunarp form={info.FormSUNARP}/>
+                                </div>
+                                <div className="InfTrabajo">
+                                    <BoxInfTrabajo form={info.FormMINTRABAJO}/>
+                                </div>
+                            </>
                         )}
                     </>
                     :
@@ -77,12 +71,6 @@ export default function DetalleExpediente(props) {
                         No existe un expediente con dicho dni.
                     </p>
                 }
-
-                
-
-                {/* <div className="InfSecretario">
-                    <BoxInfSecretario />
-                </div> */}
             </div>
         </>
     );
