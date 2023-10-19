@@ -2,19 +2,15 @@ import InfoSolicitud from "./InfoSolicitud";
 import BotonVerDetalle from "../../../components/BotonVerDetalle";
 import "./BoxSolicitud.css";
 
-export default function BoxSolicitud() {
-    const id = 1;
+export default function BoxSolicitud(props) {
+    const id = props.infoSolicitud.id;
     const url = "/J/solicitudes/" + id;
+    const infoSolicitud = props.infoSolicitud;
 
     return (
         <div className="Box" id="SolicitudDemanda">
             <div className="BoxSolicitudText">
-                <InfoSolicitud
-                    solicitud="45652"
-                    demandante="aña"
-                    demandado="owo"
-                    tipo="Obligación de dar suma de dinero"
-                />
+                <InfoSolicitud infoSolicitud={infoSolicitud}/>
             </div>
             <div className="BoxSolicitudBoton">
                 <BotonVerDetalle url={url} />

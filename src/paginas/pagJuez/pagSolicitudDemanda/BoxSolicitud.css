@@ -13,3 +13,7 @@
     align-items: flex-end;
     justify-content: flex-end;
 }
+
+#SolicitudDemanda {
+    height: 14%;
+}

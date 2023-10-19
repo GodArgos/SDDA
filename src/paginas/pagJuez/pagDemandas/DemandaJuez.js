@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
+
 import BoxDemanda from "./BoxDemanda";
 import BannerJuez from "../../../components/BannerJuez";
-import { useEffect, useState } from "react";
 
 export default function DemandaJuez(props) {
     const func = props.func;

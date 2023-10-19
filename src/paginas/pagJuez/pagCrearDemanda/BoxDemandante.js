@@ -2,19 +2,16 @@ import React from "react";
 import "./CrearDemanda.css";
 import InfoDemandante from "./InfoDemandante";
 
-const BoxDemandante = () => {
+const BoxDemandante = (props) => {
+  const solicitud = props.solicitud;
+  
   return (
     <div className="C">
       <div className="left-box">
-        Demandante Datos
+        Datos del Demandante
         <div className="CajaDemandante">
           <div className="BoxDemandanteText">
-            <InfoDemandante
-              nombre="Rasec"
-              apellidos="Rafael"
-              genero="owo"
-              dni="69696"
-            />
+            <InfoDemandante solicitud={solicitud}/>
           </div>
         </div>
       </div>

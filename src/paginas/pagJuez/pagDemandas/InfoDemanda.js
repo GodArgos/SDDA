@@ -3,7 +3,7 @@ export default function InfoDemanda(props){
 
     return(
         <div className="InfoDemanda">
-            <p><b>Nro Solicitud:</b> {infoDemanda.nro_demanda}</p>
+            <p><b>Número de Demanda:</b> {infoDemanda.nro_demanda}</p>
             <p><b>Demandante:</b> {infoDemanda.PersonaNatural.nombreCompleto}</p>
             <p><b>Demandado:</b> {infoDemanda.Demandado.nombreCompleto}</p>            
         </div>

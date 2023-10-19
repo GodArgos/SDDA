@@ -5,7 +5,7 @@ const BoxDemandado = () => {
   return (
     <div className="C">
       <div className="right-box">
-        Demandado Datos
+        Datos del Demandado
         <div className="form-container">
         <form>
           <div className="form-group">
