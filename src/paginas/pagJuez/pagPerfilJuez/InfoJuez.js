@@ -7,6 +7,9 @@ import BotonGuardarCambios from "../../../components/BotonGuardarCambios";
 import Popup from "../../../components/Popup";
 
 export default function InfoJuez(props) {
+
+    //innecesariamente hay uso de props 
+    
     const { user } = useContext(UserContext);
     
 
@@ -105,7 +108,7 @@ export default function InfoJuez(props) {
             .then(response=> response.json())
             .then(procesarDato)
             .then(handleError)
-    }, []);
+    });
 
     function handleError(error){
         if(error != null){
