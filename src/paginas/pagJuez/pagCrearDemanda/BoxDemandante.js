@@ -15,7 +15,6 @@ const BoxDemandante = (props) => {
           </div>
         </div>
       </div>
-      <button className="download-button">Descargar PDF</button>
     </div>
   );
 };

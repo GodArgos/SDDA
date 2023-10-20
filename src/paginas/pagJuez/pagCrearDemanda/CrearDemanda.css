@@ -10,7 +10,7 @@
     border: 3px solid black; 
     border-radius: 10px; 
     padding: 10px;
-    height: 76.5%;
+    height: 90%;
   }
   
   .right-box {
@@ -62,7 +62,9 @@
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    margin-right: 3%;
+   margin-left: 3%;
+   margin-right: 3%;
+    
   }
 
   .rounded-input {
