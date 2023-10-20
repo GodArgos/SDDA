@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import UserContext from "../../../UserContext";
+
 import BannerJuez from "../../../components/BannerJuez";
 import InfoCrearDemanda from "./InfoCrearDemanda";
 import BoxDemandante from "./BoxDemandante";
@@ -12,13 +14,48 @@ export default function CrearDemanda(props) {
     const req = {"id": id};
     const [solicitud, setSolicitud] = useState([]);
     const [isSolicitudLoaded, setIsSolicitudLoaded] = useState(false);
+    const Navigate = useNavigate();
+    const { user } = useContext(UserContext);
+    const backSolicitud = () => { 
+        Navigate("/J/solicitudes");
+    }
 
     const [formData, setFormData] = useState({
-        nombre: '',
-        apellidos: '',
-        genero: '',
-        dni: ''
+        def_names: '',
+        def_lastnames: '',
+        def_sexId: -1,
+        def_dni: '',
+        def_address: ' ',
+        dem_descrip: ' ',
+        juez_id: user.id
+        // persona_id y form_id se establecerán después
     });
+
+    const [deleteForm, setDeleteForm] = useState({
+
+    });
+
+    const [downloadForm, setDownloadForm] = useState({
+
+    });
+
+    useEffect(() => {
+        if (isSolicitudLoaded) {
+            setDownloadForm(prevData => ({
+                ...prevData,
+                id: solicitud.id
+            }))
+            setFormData(prevData => ({
+                ...prevData,
+                persona_id: solicitud.personaNaturalId,
+                form_id: solicitud.id
+            }));
+            setDeleteForm(prevData => ({
+                ...prevData,
+                id: solicitud.id
+            }))
+        }
+    }, [isSolicitudLoaded, solicitud]);
 
     const updateFormData = (name, value) => {
         setFormData(prevData => ({
@@ -27,21 +64,67 @@ export default function CrearDemanda(props) {
         }));
     };
 
-    const handleAccept = async () => {
+    const handleDownload = async () => {
         try {
-            const response = await fetch("http://localhost:3001/create-demanda", {
-                method: 'POST', 
+            console.log(downloadForm);
+            const response = await fetch("http://localhost:3001/download-pdf", {
+                method: 'POST',
                 headers: { "Content-type": "application/json" },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(downloadForm)
             });
-    
+
             if (!response.ok) {
                 const text = await response.text();
                 throw new Error(text);
             }
-    
+
+            const data = await response.json();
+            if (data.link) {
+                window.open(data.link, '_blank'); // abre el link en una nueva pestaña
+            } else {
+                console.error("No se recibió un enlace válido");
+            }
+        } catch (error) {
+            alert('Error al enviar la solicitud: ' + error.message);
+        }
+    };  
+
+    const handleAccept = async () => {
+        try {
+            const response = await fetch("http://localhost:3001/create-demanda", {
+                method: 'POST',
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                const text = await response.text();
+                throw new Error(text);
+            }
+
             const data = await response.json();
             alert(data.message);
+        } catch (error) {
+            alert('Error al enviar la solicitud: ' + error.message);
+        }
+    };
+
+    const handleDecline = async () => {
+        try {
+            console.log(deleteForm);
+            const response = await fetch("http://localhost:3001/delete-req", {
+                method: 'POST',
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(deleteForm)
+            });
+
+            if (!response.ok) {
+                const text = await response.text();
+                throw new Error(text);
+            }
+            //const data = await response.json();
+            //alert(data.message);
+            backSolicitud();
         } catch (error) {
             alert('Error al enviar la solicitud: ' + error.message);
         }
@@ -50,8 +133,8 @@ export default function CrearDemanda(props) {
     const fetchData = async () => {
         try {
             const response = await fetch("http://localhost:3001/get-dem-req", {
-                method: 'POST', 
-                headers: {"Content-type": "application/json"},
+                method: 'POST',
+                headers: { "Content-type": "application/json" },
                 body: JSON.stringify(req)
             });
             if (!response.ok) {
@@ -71,21 +154,21 @@ export default function CrearDemanda(props) {
 
     return (
         <>
-            <BannerJuez func={func}/>
+            <BannerJuez func={func} />
             <div className="Contenido">
-                <h1>Crear Demanda <InfoCrearDemanda solicitud={id} /> </h1>
+                <h1>Crear Demanda <InfoCrearDemanda solicitud={id} /></h1>
                 <p>
                     En esta pestaña se podrá crear la demanda.
                 </p>
                 {isSolicitudLoaded && (
                     <div className="grid-container">
-                        <BoxDemandante solicitud={solicitud}/>
+                        <BoxDemandante solicitud={solicitud} />
                         <BoxDemandado updateFormData={updateFormData} />
                     </div>
                 )}
                 <div>
-                    <button className="download-button">Descargar PDF</button>
-                    <button className="reject-button">Rechazar</button>
+                    <button className="download-button" onClick={handleDownload}>Descargar PDF</button>
+                    <button className="reject-button" onClick={handleDecline}>Rechazar</button>
                     <button className="accept-button" onClick={handleAccept}>Aceptar</button>
                 </div>
             </div>
