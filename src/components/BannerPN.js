@@ -38,12 +38,12 @@ export default function Banner(props) {
                                 </div>
                             </NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                             <BotonBanner
                                 imagen={expedientes}
                                 texto="Revisar Demandas"
                             />
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className="BotonInferior">

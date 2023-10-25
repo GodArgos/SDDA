@@ -79,6 +79,8 @@ export default function RegistroForm({ onSuccessfulRegistration, onPasswordError
                                 className="caja caja-segunda"
                                 type="number"
                                 name="dni"
+                                max="99999999"
+                                min="0"
                                 value={formData.dni}
                                 onChange={(e) =>
                                     setFormData({
