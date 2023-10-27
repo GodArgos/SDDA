@@ -1,17 +1,12 @@
-import { useContext,useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import UserContext from "../../../UserContext";
 
-import BotonEditar from "../../../components/BotonEditar";
-import BotonCancelar from "../../../components/BotonCancelar";
-import BotonGuardarCambios from "../../../components/BotonGuardarCambios";
+import BotonAccion from "../../../components/BotonAccion";
+import BotonSubmit from "../../../components/BotonSubmit";
 import Popup from "../../../components/Popup";
 
-export default function InfoJuez(props) {
-
-    //innecesariamente hay uso de props 
-    
-    const { user } = useContext(UserContext);
-    
+export default function InfoJuez() {
+    const { user, setUser } = useContext(UserContext);
 
     const [editable, setEditable] = useState(false);
     const [info, setInfo] = useState({
@@ -31,18 +26,32 @@ export default function InfoJuez(props) {
         nombreSexo: "",
         direccionJuzgado: "",
     });
-    const [infoEditada, setInfoEditada] = useState({ ...info });
-    const [dniError, setDniError] = useState(false);
+
+    const [infoEditada, setInfoEditada] = useState({ ...info,
+        confirmPassword: "",
+        confirmNewPassword: ""
+    });
+
+    const [passwordError, setpasswordError] = useState(false);
+    const [passwordNoMatchError, setpasswordNoMatchError] = useState(false);
 
     const opcionesGenero = ["Masculino", "Femenino", "Otro"];
 
     function generoTexto(valor) {
-        return opcionesGenero[valor-1]
+        return opcionesGenero[valor-1];
+    }
+
+    function contrasenaEcnriptada(){
+        let contrasenaE = "";
+        for (let index = 0; index < info.password.length; index++) {
+            contrasenaE = contrasenaE + "*";
+        }
+        return contrasenaE;
     }
 
     function editarInfo() {
         setEditable(!editable);
-        console.log("Ahora se puede editar");;
+        console.log("Ahora se puede editar");
     }
 
     const handleChange = (e) => {
@@ -50,11 +59,14 @@ export default function InfoJuez(props) {
         setInfoEditada({ ...infoEditada, [name]: value });
     };
 
-    function guardarCambios() {
-        if (infoEditada.dni.length !== 8 && infoEditada.dni.length !== 0) {
-            setDniError(true);
-        } else if(infoEditada !== info){
-            console.log("Se cambió la info:");
+    function handleSubmit(e){
+        e.preventDefault();
+        if(infoEditada.password !== infoEditada.confirmNewPassword){
+            setpasswordNoMatchError(true);
+        } else if(info.password !== infoEditada.confirmPassword){
+            setpasswordError(true);
+        } else {
+            console.log("Se cambiaron las contraseñas:");
             fetch("http://localhost:3001/modify-profile-judge", {
                 method: 'POST', 
                 headers: {"Content-type": "application/json",},
@@ -63,13 +75,9 @@ export default function InfoJuez(props) {
                 .then(response => response.json())
                 .then(procesarDatoGuardado)
                 .then(handleError)
-            user.username = infoEditada.username;
-            user.password = infoEditada.password;
+            setUser({...user, "password": infoEditada.password});
             setEditable(!editable);
             console.log("Se han guardado los cambios");
-        } else {
-            setEditable(!editable);
-            console.log("No se han hecho cambios");
         }
     }
 
@@ -79,8 +87,12 @@ export default function InfoJuez(props) {
         console.log("Se descartaron los cambios");
     }
 
-    const closeDNIErrorPopup = () => {
-        setDniError(false);
+    const closePNMPopup = () => {
+        setpasswordNoMatchError(false);
+    }
+    
+    const closePPopup = () => {
+        setpasswordError(false);
     }
 
     function procesarDatoGuardado(data){
@@ -119,95 +131,119 @@ export default function InfoJuez(props) {
     return (
         <div className="Info">
             {editable ? (
-                <>
-                    <p>
-                        <b>Nombre: </b>
-                        <input
-                            type="text"
-                            name="nombres"
-                            placeholder={info.nombres}
-                            onChange={handleChange}
-                        />
-                    </p>
-                    <p>
-                        <b>Apellidos: </b>
-                        <input
-                            type="text"
-                            name="apellidos"
-                            placeholder={info.apellidos}
-                            onChange={handleChange}
-                        />
-                    </p>
-                    <p>
-                        <b>Sexo: </b>
-                        <select name="sexoId" onChange={handleChange}>
-                            {opcionesGenero.map((opcion, index) => (
-                            <option key={opcion} value={index + 1}>
-                                {opcion}
-                            </option>
-                            ))}
-                        </select>
-                    </p>
-                    <p>
-                        <b>DNI: </b>
-                        <input
-                            type="text"
-                            name="dni"
-                            placeholder={info.dni}
-                            onChange={handleChange}
-                        />
-                    </p>
-                    <p>
-                        <b>Número de Colegiatura: </b>
-                        <input
-                            type="text"
-                            name="nro_colegiatura"
-                            placeholder={info.nro_colegiatura}
-                            onChange={handleChange}
-                        />
-                    </p>
-                    <p><b>Dirección de Juzgado:</b> {info.direccionJuzgado}</p>
-                    <br />
-                    <p>
-                        <b>Usuario: </b>
-                        <input
-                            type="text"
-                            name="username"
-                            placeholder={info.username}
-                            onChange={handleChange}
-                        />
-                    </p>
-                    <p>
-                        <b>Contraseña: </b>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder={"*******"}
-                            onChange={handleChange}
-                        />
-                    </p>
-                    <br />
-                    <BotonGuardarCambios func={guardarCambios} />
-                    <BotonCancelar func={cancelarEdicion} />
-                </>
-            ) : (
-                <>
-                    <p><b>Nombre:</b> {info.nombres}</p>
-                    <p><b>Apellidos:</b> {info.apellidos}</p>
-                    <p><b>Sexo:</b> {generoTexto(info.sexoId)}</p>
-                    <p><b>DNI:</b> {info.dni}</p>
-                    <p><b>Número de Colegiatura:</b> {info.nro_colegiatura}</p>
-                    <p><b>Dirección de Juzgado:</b> {info.direccionJuzgado}</p>
+                <form className="Grid" id="GridContrasena" onSubmit={handleSubmit}>
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Nombre de Usuario</label>
+                            <p>{info.username}</p>
+                        </div>
+                    </div>
                     <br/>
-                    <p><b>Usuario:</b> {info.username}</p>
-                    <p><b>Contraseña:</b> ********</p>
-                    <BotonEditar func={editarInfo} />
-                </>
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Contraseña Actual</label>
+                            <input
+                                type="password"
+                                name="confirmPassword"
+                                minLength={8}
+                                placeholder={"Contraseña Actual"}
+                                onChange={handleChange}
+                                className="inputPerfil"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Contraseña Nueva</label>
+                            <input
+                                type="password"
+                                name="password"
+                                minLength={8}
+                                placeholder={"Contraseña Nueva"}
+                                onChange={handleChange}
+                                className="inputPerfil"
+                                required
+                            />
+                        </div>
+                    </div> 
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Confirmar Contraseña Nueva</label>
+                            <input
+                                type="password"
+                                name="confirmNewPassword"
+                                minLength={8}
+                                placeholder={"Confirmar Contraseña Nueva"}
+                                onChange={handleChange}
+                                className="inputPerfil"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="Row" id="RowBoton">
+                        <BotonSubmit func={handleSubmit} texto={"Guardar Cambios"}/>
+                        <BotonAccion func={cancelarEdicion} texto={"Cancelar"} estilo={"BAntiAccion"}/>
+                    </div>
+                </form>
+            ) : (
+                <div className="Grid">
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Nombre</label>
+                            <p>{info.nombres}</p>
+                        </div>
+                        <div className="Column">
+                            <label className="nomInfo">Apellidos</label>
+                            <p>{info.apellidos}</p>
+                        </div>
+                    </div>
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Sexo</label>
+                            <p>{generoTexto(info.sexoId)}</p>
+                        </div>
+                        <div className="Column">
+                            <label className="nomInfo">DNI</label>
+                            <p>{info.dni}</p>
+                        </div>
+                    </div>
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Número de Colegiatura</label>
+                            <p>{info.nro_colegiatura}</p>
+                        </div>
+                        <div className="Column">
+                            <label className="nomInfo">Dirección de Juzgado</label>
+                            <p>{info.direccionJuzgado}</p>
+                        </div>
+                    </div>
+                    <br/> 
+                    <div className="Row">
+                        <div className="Column">
+                            <label className="nomInfo">Nombre de Usuario</label>
+                            <p>{info.username}</p>
+                        </div>
+                        <div className="Column">
+                            <label className="nomInfo">Contraseña</label>
+                            <p>{contrasenaEcnriptada()}</p>
+                        </div>
+                    </div>
+                    <div className="Row" id="RowBoton">
+                        <BotonAccion func={editarInfo} texto={"Cambiar contraseña"}/>
+                    </div>
+                </div>
             )}
-            {dniError && (
+            {passwordError && (
                 <Popup
-                    func={closeDNIErrorPopup}
-                    texto="Coloque un DNI válido"
+                    func={closePPopup}
+                    texto="La contraseña actual no es correcta."
+                />
+            )}
+            {passwordNoMatchError && (
+                <Popup
+                    func={closePNMPopup}
+                    texto="Las contraseñas no coinciden."
                 />
             )}
         </div>

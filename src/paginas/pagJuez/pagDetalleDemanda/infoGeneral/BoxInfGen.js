@@ -5,7 +5,7 @@ export default function BoxInfGen(props) {
     const infoDemanda = props.infoDemanda;
     return (
         <div id="InfGen">
-            <div className="Box">
+            <div className="Box" id="BInfo">
                 <h3>Información general:</h3>
                 <InfoInfGen infoDemanda={infoDemanda}/>
             </div>

@@ -1,17 +1,22 @@
 import InfoInfPersona from "./InfoInfPersona";
-import BotonVerExpediente from "../../../../components/BotonVerExpediente";
+import BotonURL from "../../../../components/BotonURL";
 import "./BoxInfPersona.css";
 
 export default function BoxInfDemandado(props) {
     const infoPersona = props.infoPersona;
     const dni = infoPersona.dni;
+    const url = "/J/expedientes/" + dni;
 
     return (
         <div className="Box">
-            <h3>Información personal del demandado: </h3>
-            INFORMACIÓN DEL DEMANDADO:
-            <InfoInfPersona infoPersona={infoPersona} rol="Demandado"/>
-            <BotonVerExpediente dni={dni} />
+            <div className="BTexto">
+                <h3>Información personal del demandado: </h3>
+                INFORMACIÓN DEL DEMANDADO:
+                <InfoInfPersona infoPersona={infoPersona} rol="Demandado"/>
+            </div>
+            <div className="BBoton">
+                <BotonURL url={url} texto={"Ver Expediente"} />
+            </div>
         </div>
     );
 }

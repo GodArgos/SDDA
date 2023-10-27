@@ -35,7 +35,6 @@ export default function Login() {
             if (result.loginSuccess) {
                 console.log("Inicio de sesión exitoso. Usuario:", result.user);
                 setUser(result.user);
-  
     
                 if (result.user.nro_colegiatura) { 
                     console.log("Navegando a /j");

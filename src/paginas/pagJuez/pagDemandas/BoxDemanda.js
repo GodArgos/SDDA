@@ -1,6 +1,5 @@
 import InfoDemanda from "./InfoDemanda";
-import BotonVerDetalle from "../../../components/BotonVerDetalle";
-import "./BoxDemanda.css";
+import BotonURL from "../../../components/BotonURL";
 
 export default function BoxDemanda(props) {
     const id = props.infoDemanda.id;
@@ -9,13 +8,13 @@ export default function BoxDemanda(props) {
 
     return (
         <div className="Box" id="DemandaJuez">
-            <div className="BoxDemandaText">
+            <div className="BTexto">
                 <div className="InfoDemanda">
                     <InfoDemanda infoDemanda={infoDemanda} />   
                 </div>
             </div>
-            <div className="BoxDemandaBoton">
-                <BotonVerDetalle url={url} />
+            <div className="BBoton">
+                <BotonURL url={url} texto={"Ver Detalle"}/>
             </div>
         </div>
     );

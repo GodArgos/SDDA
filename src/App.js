@@ -4,7 +4,6 @@ import { useState } from "react";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import "./App.css";
 
-
 /* Vista de Inicio de sesión y Registro */
 import Login from "./paginas/pagInicioSesion/InicioSesion";
 import Registro from "./paginas/pagRegistro/Registro";
@@ -23,7 +22,6 @@ import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
 import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDemanda";
 
 function App() {
-
     const [user, setUser] = useState(null);
 
     const logout = () => {

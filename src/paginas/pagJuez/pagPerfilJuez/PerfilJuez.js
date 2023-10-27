@@ -8,14 +8,16 @@ export default function PerfilJuez(props) {
 
     console.log("Usuario en PerfilJuez:", user);
     const func = props.func;
-    const id = props.id;
+
     return (
         <>
             <BannerJuez func={func} />
             <div className="Contenido">
                 <h1>Mi Perfil</h1>
                 <p>Información general del perfil del juez.</p>
-                <InfoJuez id={id} />
+                <div className="Box" id='BBlock'>
+                    <InfoJuez />
+                </div>
             </div>
         </>
     );

@@ -3,7 +3,7 @@ import InfoInfSecretario from "./InfoInfSecretario";
 export default function BoxInfSecretario() {
     return (
         <div id="InfSecretario">
-            <div className="Box">
+            <div className="Box" id="BInfo">
                 <h3>Secretario Judicial:</h3>
                 <InfoInfSecretario
                     nombres="ayuda"

@@ -44,7 +44,7 @@ export default function SolicitudDemanda(props) {
                             <BoxSolicitud key={index} infoSolicitud={solicitud}/>
                         ))
                     ) : (
-                        <p>No hay demandas disponibles.</p>
+                        <p>No hay solicitudes disponibles.</p>
                     ))
                 }
             </div>
