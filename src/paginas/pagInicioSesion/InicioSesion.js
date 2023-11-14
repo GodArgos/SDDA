@@ -5,10 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Popup from "../../components/Popup";
 import LoginForm from "./LoginForm";
 import UserContext from "../../UserContext";
+import { type } from "@testing-library/user-event/dist/type";
 
 const initialFormData = {
+    type: 0,
     username: "",
     password: "",
+    
+    
 };
 
 export default function Login() {

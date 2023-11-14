@@ -34,6 +34,20 @@ export default function LoginForm({ formData, setFormData, handleLogin }) {
                 />
             </div>
             <div className="Elemento">
+                <label>Tipo de usuario:</label>
+                <input
+                    className="number"
+                    type="type"
+                    name="type"
+                    id="type"
+                    value={formData.type}
+                    onChange={(e) => setFormData({
+                        ...formData,
+                        type: e.target.value,
+                    })}
+                />
+            </div>
+            <div className="Elemento">
                 <BotonLogin/>
             </div>
         </form>
