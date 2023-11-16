@@ -37,14 +37,11 @@ export default function Login() {
         .then(result => {
             console.log("Respuesta del servidor:", result);
             if (result.loginSuccess) {
-                console.log("Inicio de sesión exitoso. Usuario:", result.user);
                 setUser(result.user);
     
                 if (result.user.nro_colegiatura) { 
-                    console.log("Navegando a /j");
                     navigate("/j");
                 } else {
-                    console.log("Navegando a /p");
                     navigate("/p");
                 }
             } else {

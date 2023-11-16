@@ -15,12 +15,9 @@ const customStyles = {
         height: '250px',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        
-    },
-    
+        alignItems: 'center',  
+    },  
 };
-
 
 const buttonContainerStyle = {
     padding: '10px 20px',
@@ -52,8 +49,8 @@ const DateButton = () => {
     };
 
     return (
-        <div>
-            <button className='Boton' onClick={openModal}>Fecha Audiencia</button>
+        <>
+            <button className='Boton' id="BFecha" onClick={openModal}>Fecha Audiencia</button>
             <Modal 
                 isOpen={modalIsOpen} 
                 onRequestClose={closeModal}
@@ -65,7 +62,7 @@ const DateButton = () => {
                     <button className='Boton' onClick={closeModal}>Cerrar</button>
                 </div>
             </Modal>
-        </div>
+        </>
     );
 };
 

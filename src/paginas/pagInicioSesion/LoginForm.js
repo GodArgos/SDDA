@@ -4,7 +4,7 @@ import BotonLogin from "../../components/BotonLogin";
 
 export default function LoginForm({ formData, setFormData, handleLogin }) {
     return (
-        <form onSubmit={handleLogin}>
+        <form className="formularioLogin" onSubmit={handleLogin}>
             <div className="Elemento">
                 <label>Usuario:</label>
                 <input
@@ -35,17 +35,18 @@ export default function LoginForm({ formData, setFormData, handleLogin }) {
             </div>
             <div className="Elemento">
                 <label>Tipo de usuario:</label>
-                <input
-                    className="number"
-                    type="type"
-                    name="type"
+                <select 
+                    className="SelectCajaLogin"
+                    name="type" 
                     id="type"
-                    value={formData.type}
                     onChange={(e) => setFormData({
                         ...formData,
                         type: e.target.value,
-                    })}
-                />
+                    })}>
+                    <option value={0}>Persona Natural</option>
+                    <option value={1}>Juez</option>
+                    <option value={2}>Secretario</option>
+                </select>
             </div>
             <div className="Elemento">
                 <BotonLogin/>

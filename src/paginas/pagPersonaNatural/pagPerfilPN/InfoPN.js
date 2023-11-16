@@ -11,6 +11,7 @@ export default function InfoPN(){
     const [editable, setEditable] = useState(false);
     const [info, setInfo] = useState({ 
         id: "",
+        type: user.tipo,
         username:"",
         password:"",
         nombre:"",
@@ -59,7 +60,7 @@ export default function InfoPN(){
             setpasswordError(true);
         } else {
             console.log("Se cambiaron las contraseñas:");
-            fetch("http://localhost:3001/modify-profile-person", {
+            fetch("http://localhost:3001/modify-profile", {
                 method: 'POST', 
                 headers: {"Content-type": "application/json",},
                 body: JSON.stringify(infoEditada)
@@ -94,16 +95,17 @@ export default function InfoPN(){
     }
 
     function procesarDato(data){
-        setInfo(data);
-        setInfoEditada(data);
+        setInfo({...data, "type": user.tipo});
+        setInfoEditada({...data, "type": user.tipo});
     }
 
     useEffect(() => {
         const requestData = {
+            type: user.tipo,
             username: user.username,
             password: user.password,
         };
-        fetch("http://localhost:3001/profile-person", {
+        fetch("http://localhost:3001/profile", {
             method: 'POST', 
             headers: {"Content-type": "application/json",},
             body: JSON.stringify(requestData)

@@ -126,7 +126,7 @@ export default function RegistroForm({ onSuccessfulRegistration, onPasswordError
                         <div className="Elemento">
                             <label>Sexo:</label>
                             <select
-                                className="caja-documento"
+                                className="SelectCajaRegistro"
                                 value={formData.sex}
                                 onChange={(e) =>
                                     setFormData({

@@ -13,13 +13,9 @@ export default function BoxDemanda(props) {
                 <div className="InfoDemanda">
                     <InfoDemanda infoDemanda={infoDemanda} />   
                 </div>
-            </div>
-            <div className="FechaBoton">
-            <BotonFecha/>
-            </div>
-                
+            </div>                
             <div className="BBoton">
-
+                <BotonFecha/>
                 <BotonURL url={url} texto={"Ver Detalle"}/>
             </div>
         </div>

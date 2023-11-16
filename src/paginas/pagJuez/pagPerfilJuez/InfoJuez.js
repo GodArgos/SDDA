@@ -11,6 +11,7 @@ export default function InfoJuez() {
     const [editable, setEditable] = useState(false);
     const [info, setInfo] = useState({
         id: null,
+        type: user.tipo,
         username: "",
         password: "",
         nombres: "",
@@ -67,7 +68,7 @@ export default function InfoJuez() {
             setpasswordError(true);
         } else {
             console.log("Se cambiaron las contraseñas:");
-            fetch("http://localhost:3001/modify-profile-judge", {
+            fetch("http://localhost:3001/modify-profile", {
                 method: 'POST', 
                 headers: {"Content-type": "application/json",},
                 body: JSON.stringify(infoEditada)
@@ -102,17 +103,17 @@ export default function InfoJuez() {
     }
 
     function procesarDato(data){
-        setInfo(data);
-        setInfoEditada(data);
+        setInfo({...data, "type": user.tipo});
+        setInfoEditada({...data, "type": user.tipo});
     }
 
     useEffect(() => {
         const requestData = {
+            type: user.tipo,
             username: user.username,
             password: user.password,
         };
-        console.log(requestData)
-        fetch("http://localhost:3001/profile-judge", {
+        fetch("http://localhost:3001/profile", {
             method: 'POST', 
             headers: {"Content-type": "application/json",},
             body: JSON.stringify(requestData)

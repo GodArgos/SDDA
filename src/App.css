@@ -102,12 +102,13 @@ ul {
 .Boton {
     background-color: #bc4745;
     color: white;
+    border: none;
     border-width: 0px;
     border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    padding: 1.5% 5%;
+    padding: 0.4rem 1rem;
 }
 
 #BAccion {
@@ -120,6 +121,12 @@ ul {
     color: black;
     padding: 0.5rem 2rem;
     margin-right: 0.5rem;
+}
+
+#BFecha {
+    margin-right: 0.5rem;
+    font-size: 0.95rem;
+    padding: 0.57rem 1rem 0.43rem 1rem;
 }
 
 .BotonBuscar {
@@ -197,16 +204,6 @@ ul {
     align-items: flex-end;
     justify-content: flex-end;
     padding-bottom: 0.75rem;
-}
-
-.Box .FechaBoton {
-    display: flex;
-    width: 30%;
-    max-height: 100%;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding-bottom: 0.75rem;
-    
 }
 
 #BBlock {

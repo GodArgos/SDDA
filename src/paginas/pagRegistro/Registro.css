@@ -7,6 +7,8 @@
     height: 100vh;
 }
 
+
+
 .divsuperior {
     display: flex;
     flex-direction: column;
@@ -20,7 +22,7 @@
     align-items: center;
     background-color: white;
     border-radius: 10px;
-    width: 23%;
+    width: 23rem;
 }
 
 .caja {

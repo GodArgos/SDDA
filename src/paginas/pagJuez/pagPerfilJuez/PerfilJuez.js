@@ -5,8 +5,6 @@ import InfoJuez from "./InfoJuez";
 
 export default function PerfilJuez(props) {
     const { user } = useContext(UserContext);
-
-    console.log("Usuario en PerfilJuez:", user);
     const func = props.func;
 
     return (

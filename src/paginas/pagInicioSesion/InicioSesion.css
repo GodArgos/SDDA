@@ -6,7 +6,7 @@
     justify-content: center;
     height: 100vh;
     width: 100%;
-  }
+}
   
   .divsuperior {
     display: flex;
@@ -21,22 +21,32 @@
     align-items: center;
     background-color: white;
     border-radius: 10px;
-    width: 23%;
+    width: 23rem;
+  }
+
+  .contenidologin {
+    margin: 0px;
+  }
+
+  .formularioLogin {
+    width: 100%;
+    max-width: 100%;
   }
   
   .Elemento {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Cambiamos de "center" a "flex-start" para alinear los labels a la izquierda */
+    display: block;
     margin-bottom: 10px;
+    max-width: 100%;
   }
+
+ 
   
   .caja {
     border-radius: 10px;
     height: 30px;
     width: 100%;
-    max-width: 300px;
     padding: 5px;
+    max-width: 100%;
   }
   
   .logo-image {
@@ -56,4 +66,13 @@
   
   .rojo {
     color: #FF0000; /* Cambia este valor a rojo o el código de color que desees */
+  }
+
+  .SelectCajaLogin {
+    width: 100%;
+  }
+
+  
+  .SelectCajaRegistro {
+    width: 90%;
   }
