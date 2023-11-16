@@ -199,6 +199,16 @@ ul {
     padding-bottom: 0.75rem;
 }
 
+.Box .FechaBoton {
+    display: flex;
+    width: 30%;
+    max-height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 0.75rem;
+    
+}
+
 #BBlock {
     display: block;
     padding: 1.5rem 2rem;
