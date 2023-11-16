@@ -1,5 +1,5 @@
 .pantallalogin {
-    background-color: #991C1E;
+    background-color: #991c1e;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,72 +7,89 @@
     height: 100vh;
     width: 100%;
 }
-  
-  .divsuperior {
+
+.divsuperior {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2%;
-  }
-  
-  .divinferior {
+    margin-bottom: 2rem;
+}
+
+#DSRegistro {
+    margin-bottom: 0.5rem;
+}
+
+.divinferior {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
     border-radius: 10px;
     width: 23rem;
-  }
+}
 
-  .contenidologin {
+.divinferior > div {
+    margin: 10px;
+}
+
+.logo-image {
+    width: 35%;
+    height: auto;
+}
+
+/* Login */
+
+.contenidologin {
     margin: 0px;
-  }
+}
 
-  .formularioLogin {
+#h1 {
+    font-size: 24px;
+    text-align: center; /* Centramos el texto del título */
+}
+
+.formularioLogin {
     width: 100%;
     max-width: 100%;
-  }
-  
-  .Elemento {
+}
+
+label {
+    font-size: 12px;
+    text-align: left; /* Alineamos los labels a la izquierda */
+}
+
+.Elemento {
     display: block;
     margin-bottom: 10px;
     max-width: 100%;
-  }
+}
 
- 
-  
-  .caja {
+.caja {
     border-radius: 10px;
-    height: 30px;
+    height: 2.2rem;
+    border: 2px solid #1b1b1b;
     width: 100%;
     padding: 5px;
+    box-sizing: border-box;
     max-width: 100%;
-  }
-  
-  .logo-image {
-    width: 35%;
-    height: auto;
-  }
-  
-  #h1 {
-    font-size: 24px;
-    text-align: center; /* Centramos el texto del título */
-  }
-  
-  label {
-    font-size: 12px;
-    text-align: left; /* Alineamos los labels a la izquierda */
-  }
-  
-  .rojo {
-    color: #FF0000; /* Cambia este valor a rojo o el código de color que desees */
-  }
+}
 
-  .SelectCajaLogin {
+.rojo {
+    color: #ff0000; /* Cambia este valor a rojo o el código de color que desees */
+}
+
+.SelectCajaLogin {
+    border-radius: 10px;
+    height: 2.2rem;
     width: 100%;
-  }
+    padding: 5px;
+    width: 100%;
+    border: 2px solid #1b1b1b;
+    margin-bottom: 1rem;
+}
 
-  
-  .SelectCajaRegistro {
+.SelectCajaRegistro {
     width: 90%;
-  }
+}
+
+/* Registro */

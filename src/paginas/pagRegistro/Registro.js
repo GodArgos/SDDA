@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Popup from "../../components/Popup";
 import RegistroForm from "./RegistroForm"; 
-import "./Registro.css";
 import logo from "../../imagenes/logo.png";
+import "./Registro.css";
 
 export default function Registro() {
     
@@ -19,7 +19,7 @@ export default function Registro() {
 
     return (
         <div className="pantallalogin">
-            <div className="divsuperior">
+            <div className="divsuperior" id="DSRegistro">
                 <img src={logo} alt="Logo" className="logo-image" />
             </div>
             <div className="divinferior">

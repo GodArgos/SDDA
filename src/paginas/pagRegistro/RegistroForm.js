@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import BotonVolver from "../../components/BotonVolver";
 import { useNavigate } from "react-router-dom";
-import "./Registro.css";
 
 export default function RegistroForm({ onSuccessfulRegistration, onPasswordError }) {
     const initialFormData = {

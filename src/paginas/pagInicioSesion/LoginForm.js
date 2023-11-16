@@ -1,5 +1,4 @@
 import React from 'react';
-import "./InicioSesion.css";
 import BotonLogin from "../../components/BotonLogin";
 
 export default function LoginForm({ formData, setFormData, handleLogin }) {
