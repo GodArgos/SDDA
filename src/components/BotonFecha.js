@@ -27,7 +27,7 @@ const buttonContainerStyle = {
     justifyContent: 'center'
 };
 
-const DateButton = () => {
+const BotonFecha = ({ onDateSelect }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -44,8 +44,18 @@ const DateButton = () => {
     };
 
     const saveDate = () => {
-        // Aquí puedes manejar el guardado de la fecha
-        closeModal();  // Cerrar el modal después de guardar
+        
+        const formattedDate = formatToDate(selectedDate);
+        onDateSelect(formattedDate); 
+        closeModal();
+    };
+
+    
+    const formatToDate = (date) => {
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
     };
 
     return (
@@ -66,4 +76,8 @@ const DateButton = () => {
     );
 };
 
-export default DateButton;
+export default BotonFecha;
+
+
+
+
