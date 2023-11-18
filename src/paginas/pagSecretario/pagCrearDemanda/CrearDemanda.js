@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import UserContext from "../../../UserContext";
 
-import BannerJuez from "../../../components/BannerJuez";
+import BannerSec from "../../../components/BannerSec";
 import InfoCrearDemanda from "./InfoCrearDemanda";
 import BoxDemandante from "./BoxDemandante";
 import BoxDemandado from "./BoxDemandado";
@@ -17,7 +17,7 @@ export default function CrearDemanda(props) {
     const Navigate = useNavigate();
     const { user } = useContext(UserContext);
     const backSolicitud = () => { 
-        Navigate("/J/solicitudes");
+        Navigate("/S/solicitudes");
     }
 
     const [formData, setFormData] = useState({
@@ -154,7 +154,7 @@ export default function CrearDemanda(props) {
 
     return (
         <>
-            <BannerJuez func={func} />
+            <BannerSec func={func} />
             <div className="Contenido">
                 <h1>Crear Demanda <InfoCrearDemanda solicitud={id} /></h1>
                 <p>

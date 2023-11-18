@@ -3,7 +3,7 @@ import BotonURL from "../../../components/BotonURL";
 
 export default function BoxSolicitud(props) {
     const id = props.infoSolicitud.id;
-    const url = "/J/solicitudes/" + id;
+    const url = "/S/solicitudes/" + id;
     const infoSolicitud = props.infoSolicitud;
 
     return (

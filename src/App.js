@@ -14,12 +14,16 @@ import DemandaJuez from "./paginas/pagJuez/pagDemandas/DemandaJuez";
 import DetalleDemanda from "./paginas/pagJuez/pagDetalleDemanda/DetalleDemanda";
 import DetalleExpediente from "./paginas/pagJuez/pagDetalleExpediente/DetalleExpediente";
 import Expediente from "./paginas/pagJuez/pagExpedientes/Expediente";
-import SolicitudDemanda from "./paginas/pagJuez/pagSolicitudDemanda/SolicitudDemanda";
-import CrearDemanda from "./paginas/pagJuez/pagCrearDemanda/CrearDemanda";
+
 /* Vista de persona natural */
 import InicioPN from "./paginas/pagPersonaNatural/pagInicioPN/InicioPN";
 import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
 import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDemanda";
+/* Vista de secretario*/
+import InicioSec from "./paginas/pagSecretario/pagInicioSec/InicioSec";
+import PerfilSec from "./paginas/pagSecretario/pagPerfilSec/PerfilSec";
+import SolicitudDemanda from "./paginas/pagSecretario/pagSolicitudDemanda/SolicitudDemanda";
+import CrearDemanda from "./paginas/pagSecretario/pagCrearDemanda/CrearDemanda";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -50,7 +54,7 @@ function App() {
                         
                             <ProtectedRoute
                             
-                            isAllowed={!!user && !!user.nro_colegiatura}
+                            isAllowed={!!user && user.tipo === 1}
                             />
                         }
                     >
@@ -61,14 +65,6 @@ function App() {
                         <Route
                             path="/J/perfil"
                             element={<PerfilJuez func={logout} />}
-                        />
-                        <Route
-                            path="/J/solicitudes"
-                            element={<SolicitudDemanda func={logout} />}
-                        />
-                        <Route
-                            path="/J/solicitudes/:id"
-                            element={<CrearDemanda func={logout} />}
                         />
                         <Route
                             path="/J/demandas"
@@ -91,7 +87,7 @@ function App() {
                     <Route
                         element={
                             <ProtectedRoute
-                            isAllowed={!!user && !user.nro_colegiatura}
+                            isAllowed={!!user && user.tipo === 0}
                             />
                         }
                     >
@@ -112,6 +108,33 @@ function App() {
                             element={<DetalleDemanda func={logout} />}
                         />
                     </Route>
+
+                    {/* Ruta protegida de las vistas de secretario */}
+                    <Route
+                        element={
+                            <ProtectedRoute
+                            isAllowed={!!user }
+                            />
+                        }
+                    >
+                        <Route
+                            path="/S/"
+                            element={<InicioSec func={logout} />}
+                        />
+                        <Route
+                            path="/S/perfil"
+                            element={<PerfilSec func={logout} />}
+                        />
+                        <Route
+                            path="/S/solicitudes"
+                            element={<SolicitudDemanda func={logout} />}
+                        />
+                        <Route
+                            path="/S/solicitudes/:id"
+                            element={<CrearDemanda func={logout} />}
+                        />
+                    </Route>
+
                     <Route
                         path="/*"
                         element={

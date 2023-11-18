@@ -39,10 +39,12 @@ export default function Login() {
             if (result.loginSuccess) {
                 setUser(result.user);
     
-                if (result.user.nro_colegiatura) { 
-                    navigate("/j");
-                } else {
-                    navigate("/p");
+                if (result.user.tipo === 0) { 
+                    navigate("/P");
+                } else if (result.user.tipo === 1){
+                    navigate("/J");
+                } else if (result.user.tipo === 2){
+                    navigate("/S");
                 }
             } else {
                 console.log("Error en el inicio de sesión");

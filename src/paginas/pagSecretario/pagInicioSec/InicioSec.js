@@ -1,19 +1,18 @@
-import BannerJuez from "../../../components/BannerJuez";
-import React from 'react';
+import BannerSec from "../../../components/BannerSec";
+import React from "react";
 
-
-export default function InicioJuez(props) {
+export default function InicioSec(props) {
     const func = props.func;
     return (
         <>
-            <BannerJuez func={func} />
+            <BannerSec func={func} />
             <div className="Contenido">
                 <div className="Bienvenida">
-                    <h1>Bienvenido Juez</h1>
+                    <h1>Bienvenido Secretario</h1>
                     <div className="Seccion">
                         En esta plataforma tendrá todas las herramientas
                         necesarias para ver la información correspondiente a las
-                        demandas que han sido asignadas.
+                        demandas pendientes de su juzgado asignado.
                     </div>
                 </div>
             </div>

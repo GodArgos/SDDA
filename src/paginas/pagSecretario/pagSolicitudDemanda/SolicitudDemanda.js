@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import BoxSolicitud from "./BoxSolicitud";
-import BannerJuez from "../../../components/BannerJuez";
+import BannerSec from "../../../components/BannerSec";
 
 export default function SolicitudDemanda(props) {
     const func = props.func;
@@ -31,7 +31,7 @@ export default function SolicitudDemanda(props) {
 
     return (
         <>
-            <BannerJuez func={func} />
+            <BannerSec func={func} />
             <div className="Contenido">
                 <h1>Solicitudes</h1>
                 <p>
