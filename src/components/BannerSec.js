@@ -35,12 +35,12 @@ export default function BannerSec(props) {
                                 <div className="NombreBoton">Solicitudes</div>
                             </NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                             <NavLink to="/S/demandas-pendientes" className="BotonBanner">
                                 <img src={demandas} alt="demandas-pendientes" />
                                 <div className="NombreBoton">Demandas <br/> Pendientes</div>
                             </NavLink>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className="BotonInferior">

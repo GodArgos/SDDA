@@ -26,6 +26,7 @@ import PerfilSec from "./paginas/pagSecretario/pagPerfilSec/PerfilSec";
 import SolicitudDemanda from "./paginas/pagSecretario/pagSolicitudDemanda/SolicitudDemanda";
 import CrearDemanda from "./paginas/pagSecretario/pagCrearDemanda/CrearDemanda";
 import MisDemandas from "./paginas/pagPersonaNatural/pagMisDemandas/misDemandas";
+import DetalleMiDemanda from "./paginas/pagPersonaNatural/pagDetalleMiDemanda/detalleMiDemanda";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -112,6 +113,10 @@ function App() {
                         <Route
                             path="/P/misdemandas"
                             element={<MisDemandas func={logout}/>}
+                        />
+                        <Route
+                            path="/P/misdemandas/:id"
+                            element={<DetalleMiDemanda func={logout}/>}
                         />
                     </Route>
 

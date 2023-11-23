@@ -205,6 +205,24 @@ ul {
     padding-bottom: 0.75rem;
 }
 
+.Box .BInfo {
+    width: 40%;
+    max-height: 100%;
+}
+
+.Box .BBotonPN {
+    display: flex;
+    width: 100%;
+    max-height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 0.75rem;
+}
+
+#PN {
+    width: 60%;
+}
+
 #BBlock {
     display: block;
     padding: 1.5rem 2rem;

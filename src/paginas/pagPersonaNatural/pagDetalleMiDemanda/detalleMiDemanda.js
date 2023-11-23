@@ -2,20 +2,18 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../../UserContext";
 
-import BannerJuez from "../../../components/BannerJuez";
-import BoxDetalleDemanda from "./infoGeneral/BoxInfGen";
-import InfoDetalleDemanda from "./InfoDetalleDemanda";
-import BoxInfDemandate from "./infoPersona/BoxInfDemandante";
-import BoxInfDemandado from "./infoPersona/BoxInfDemandado";
+import BannerPN from "../../../components/BannerPN";
+import InfoMDGeneral from "./infoMDGeneral";
+import InfoMDPersona from "./infoMDPersona";
 
-export default function DetalleDemanda(props) {
+export default function DetalleMiDemanda(props) {
     const { user } = useContext(UserContext);
     const func = props.func;
     const { id } = useParams();
     const req = {"id": id};
 
     const [info, setInfo] = useState({
-        Juez: {
+        PersonaNatural: {
             id: -1
         }
     });
@@ -33,6 +31,7 @@ export default function DetalleDemanda(props) {
             }
             const data = await response.json();
             if(data !== null){
+                console.log(data)
                 setInfo(data);
                 setIsLoaded(true);
             }
@@ -46,13 +45,13 @@ export default function DetalleDemanda(props) {
     }, []);
 
     function errorDetalleDemanda(){
-        if(info.Juez.id === -1){
+        if(info.PersonaNatural.id === -1){
             return(
                 <p>
                     No existe una demanda asociada al id de número de demanda: {id}
                 </p> 
             )
-        } else if (info.Juez.id !== user.id){
+        } else if (info.PersonaNatural.id !== user.id){
             return(
                 <p>
                     La demanda con el número de demanda {id} no está asociada al usuario actualmente en sesión.
@@ -64,27 +63,23 @@ export default function DetalleDemanda(props) {
 
     return (
         <>
-            <BannerJuez func={func} />
+            <BannerPN func={func} />
             <div className="Contenido">
                 <h1>
-                    Demanda <InfoDetalleDemanda solicitud={id} />
+                    Demanda Nro {id}
                 </h1>
 
-                { info.Juez.id === user.id ? 
+                {info.PersonaNatural.id === user.id ? 
                     <>
                         <p>
                             En esta pestaña encontrará toda la información referida a la
-                            demanda <InfoDetalleDemanda solicitud={id} />.
+                            demanda Nro {id}
                         </p>
-                        {isLoaded && (
+                        { isLoaded && (
                             <>
-                                <BoxDetalleDemanda infoDemanda={info}/>
-                                <div className="InfDemandante">
-                                    <BoxInfDemandate infoPersona={info.PersonaNatural}/>
-                                </div>
-                                <div className="InfDemandado">
-                                    <BoxInfDemandado infoPersona={info.Demandado}/>
-                                </div>
+                                <InfoMDGeneral infoDemanda={info}/>
+                                <InfoMDPersona infoPersona={info.PersonaNatural} rol="demandante"/>
+                                <InfoMDPersona infoPersona={info.Demandado} rol="demandado"/>
                             </>
                         )}
                     </>

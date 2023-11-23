@@ -11,7 +11,6 @@ export default function BoxInfDemandate(props) {
         <div className="Box">
             <div className="BTexto">
                 <h3>Información personal del demandante: </h3>
-                INFORMACIÓN DEL DEMANDANTE:
                 <InfoInfPersona infoPersona={infoPersona} rol="Demandante"/>
             </div>
             <div className="BBoton">
