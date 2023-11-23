@@ -9,7 +9,7 @@ import expedientes from "../imagenes/expedientes.png";
 import demandas from "../imagenes/demandas.png";
 import logout from "../imagenes/logout.png";
 
-export default function Banner(props) {
+export default function BannerPN(props) {
     const func = props.func;
 
     return (
@@ -38,12 +38,14 @@ export default function Banner(props) {
                                 </div>
                             </NavLink>
                         </li>
-                        {/* <li>
-                            <BotonBanner
-                                imagen={expedientes}
-                                texto="Revisar Demandas"
-                            />
-                        </li> */}
+                        <li>
+                            <NavLink to="/P/misdemandas" className="BotonBanner">
+                                <img src={expedientes} alt="expedientes" />
+                                <div className="NombreBoton">
+                                    Revisar Demandas
+                                </div>
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className="BotonInferior">

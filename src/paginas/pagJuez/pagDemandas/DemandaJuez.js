@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BoxDemanda from "./BoxDemanda";
 import BannerJuez from "../../../components/BannerJuez";
 
-export default function DemandaJuez(props) {
+export default function DemandaJuez() {
     const [demandas, setDemandas] = useState([]);
     const [isDemandasLoaded, setIsDemandasLoaded] = useState(false);
 

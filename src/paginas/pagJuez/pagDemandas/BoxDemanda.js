@@ -7,14 +7,11 @@ export default function BoxDemanda(props) {
     const id = props.infoDemanda.id;
     const url = "/J/demandas/" + id;
     
-
     const { infoDemanda, onSetDate } = props;
 
     const handleDateSelection = (date) => {
         onSetDate(infoDemanda.id, date);
     };
-
-   
 
     return (
         <div className="Box" id="DemandaJuez">

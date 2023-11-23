@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import BotonBuscar from "../../../components/BotonBuscar";
 import BannerJuez from "../../../components/BannerJuez";
 import Popup from "../../../components/Popup";
 import "./Expediente.css";
@@ -38,17 +37,17 @@ export default function Expediente(props) {
                     En esta pestaña se podrá buscar el expediente requerido a
                     traves del DNI.
                 </p>
-                <div className="contExp">
+                <form onSubmit={handleOnClick} className="contExp">
                     <label id="name">DNI</label>
                     <input
                         type="number"
                         id="input"
-                        min="8"
-                        max="8"
+                        minLength="8"
+                        maxLength="8"
                         onChange={onChangeHandler}
                     />
-                    <BotonBuscar func={handleOnClick} />
-                </div>
+                    <button type="submit" className="BotonBuscar">Buscar</button>
+                </form>
             </div>
             {dniError && (
                 <Popup

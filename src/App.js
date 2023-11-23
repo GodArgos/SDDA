@@ -19,11 +19,13 @@ import Expediente from "./paginas/pagJuez/pagExpedientes/Expediente";
 import InicioPN from "./paginas/pagPersonaNatural/pagInicioPN/InicioPN";
 import PerfilPN from "./paginas/pagPersonaNatural/pagPerfilPN/PerfilPN";
 import LlenarDemanda from "./paginas/pagPersonaNatural/pagLlenarDemanda/LlenarDemanda";
+
 /* Vista de secretario*/
 import InicioSec from "./paginas/pagSecretario/pagInicioSec/InicioSec";
 import PerfilSec from "./paginas/pagSecretario/pagPerfilSec/PerfilSec";
 import SolicitudDemanda from "./paginas/pagSecretario/pagSolicitudDemanda/SolicitudDemanda";
 import CrearDemanda from "./paginas/pagSecretario/pagCrearDemanda/CrearDemanda";
+import MisDemandas from "./paginas/pagPersonaNatural/pagMisDemandas/misDemandas";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -106,6 +108,10 @@ function App() {
                         <Route
                             path="/P/demandas/:id"
                             element={<DetalleDemanda func={logout} />}
+                        />
+                        <Route
+                            path="/P/misdemandas"
+                            element={<MisDemandas func={logout}/>}
                         />
                     </Route>
 

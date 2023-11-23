@@ -183,7 +183,7 @@ export default function InfoJuez() {
                         </div>
                     </div>
                     <div className="Row" id="RowBoton">
-                        <BotonSubmit func={handleSubmit} texto={"Guardar Cambios"}/>
+                        <BotonSubmit texto={"Guardar Cambios"}/>
                         <BotonAccion func={cancelarEdicion} texto={"Cancelar"} estilo={"BAntiAccion"}/>
                     </div>
                 </form>

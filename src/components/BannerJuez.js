@@ -9,10 +9,8 @@ import expedientes from "../imagenes/expedientes.png";
 import demandas from "../imagenes/demandas.png";
 import logout from "../imagenes/logout.png";
 
-export default function Banner(props) {
+export default function BannerJuez(props) {
     const func = props.func;
-
-    
 
     return (
         <div className="Banner">

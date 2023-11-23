@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function BotonVerDetalle(props) {
+export default function BotonURL(props) {
     const {url} = props;
     const {texto} = props;
+    const navigate = useNavigate();
+
+    function handleClick(){
+        navigate(url);
+    }
 
     return(
-        <Link to={url} className="Boton">{texto}</Link>
+        <button className="Boton" onClick={handleClick}>{texto}</button>
     );
 }

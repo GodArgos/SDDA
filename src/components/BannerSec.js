@@ -8,7 +8,7 @@ import perfil from "../imagenes/perfil.png";
 import demandas from "../imagenes/demandas.png";
 import logout from "../imagenes/logout.png";
 
-export default function Banner(props) {
+export default function BannerSec(props) {
     const func = props.func;
 
     return (
