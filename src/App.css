@@ -223,6 +223,10 @@ ul {
     width: 60%;
 }
 
+#BInfoDemanda{
+    width: 100%;
+}
+
 #BBlock {
     display: block;
     padding: 1.5rem 2rem;

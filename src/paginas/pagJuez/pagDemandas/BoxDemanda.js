@@ -21,7 +21,11 @@ export default function BoxDemanda(props) {
                 </div>
             </div>                
             <div className="BBoton">
-                <BotonFecha onDateSelect={handleDateSelection}/>
+                { infoDemanda.estadoDemandaId === 2 ?
+                    <BotonFecha onDateSelect={handleDateSelection}/>
+                    :
+                    <></>
+                }
                 <BotonURL url={url} texto={"Ver Detalle"}/>
             </div>
         </div>

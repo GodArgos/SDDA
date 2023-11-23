@@ -1,4 +1,4 @@
-export default function InfoMDGeneral(props){
+export default function InfoDGeneral(props){
     const infoDemanda = props.infoDemanda;
     const estadosDemanda = ["Recibida","En Proceso","Finalizada","Rechazada"];
 
@@ -8,7 +8,7 @@ export default function InfoMDGeneral(props){
 
     return(
         <div className="Box">
-            <div className="BTexto" id="BInfoDemanda" >
+            <div className="BTexto" id="BInfoDemanda">
                 <p><b>Descripcion:</b> {infoDemanda.descripcion}</p>
                 <p><b>Fecha de emision:</b> {infoDemanda.fecha_emision}</p>
                 {infoDemanda.fecha_audiencia && (

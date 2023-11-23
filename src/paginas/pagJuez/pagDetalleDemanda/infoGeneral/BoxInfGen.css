@@ -1,9 +1,0 @@
-/* CSS del box para la informacion general. */
-
-#InfGen .Box{
-    height: 23%;
-}
-
-.BoxInfGen::content{
-    display: flex;
-}

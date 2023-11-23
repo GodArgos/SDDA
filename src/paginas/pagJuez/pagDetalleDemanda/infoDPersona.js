@@ -1,4 +1,4 @@
-export default function InfoMDPersona(props) {
+export default function InfoDPersona(props) {
     const infoPersona = props.infoPersona;
     const rol = props.rol;
 

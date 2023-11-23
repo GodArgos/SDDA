@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import UserContext from "../../../UserContext";
+
 import BoxDemanda from "./BoxDemanda";
 import BannerJuez from "../../../components/BannerJuez";
 
-export default function DemandaJuez() {
+export default function DemandaJuez(props) {
+    const { user } = useContext(UserContext);
+    const func = props.func;
+    const req = {"juezId": user.id};
     const [demandas, setDemandas] = useState([]);
     const [isDemandasLoaded, setIsDemandasLoaded] = useState(false);
 
@@ -11,6 +16,7 @@ export default function DemandaJuez() {
             const response = await fetch("http://localhost:3001/get-all-demands", {
                 method: 'POST', 
                 headers: {"Content-type": "application/json"},
+                body: JSON.stringify(req)
             });
             if (!response.ok) {
                 throw new Error('La solicitud no se completó con éxito.');
@@ -52,7 +58,7 @@ export default function DemandaJuez() {
 
     return (
         <>
-            <BannerJuez />
+            <BannerJuez func={func}/>
             <div className="Contenido">
                 <h1>Demandas</h1>
                 <p>

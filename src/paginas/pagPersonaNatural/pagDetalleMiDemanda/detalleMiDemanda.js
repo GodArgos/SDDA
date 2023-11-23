@@ -31,7 +31,6 @@ export default function DetalleMiDemanda(props) {
             }
             const data = await response.json();
             if(data !== null){
-                console.log(data)
                 setInfo(data);
                 setIsLoaded(true);
             }
@@ -73,7 +72,7 @@ export default function DetalleMiDemanda(props) {
                     <>
                         <p>
                             En esta pestaña encontrará toda la información referida a la
-                            demanda Nro {id}
+                            demanda número {id}
                         </p>
                         { isLoaded && (
                             <>

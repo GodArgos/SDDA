@@ -3,10 +3,8 @@ import { useParams } from "react-router-dom";
 import UserContext from "../../../UserContext";
 
 import BannerJuez from "../../../components/BannerJuez";
-import BoxDetalleDemanda from "./infoGeneral/BoxInfGen";
-import InfoDetalleDemanda from "./InfoDetalleDemanda";
-import BoxInfDemandate from "./infoPersona/BoxInfDemandante";
-import BoxInfDemandado from "./infoPersona/BoxInfDemandado";
+import InfoDGeneral from "./infoDGeneral";
+import InfoDPersona from "./infoDPersona";
 
 export default function DetalleDemanda(props) {
     const { user } = useContext(UserContext);
@@ -67,24 +65,20 @@ export default function DetalleDemanda(props) {
             <BannerJuez func={func} />
             <div className="Contenido">
                 <h1>
-                    Demanda <InfoDetalleDemanda solicitud={id} />
+                    Demanda Nro {id}
                 </h1>
 
                 { info.Juez.id === user.id ? 
                     <>
                         <p>
                             En esta pestaña encontrará toda la información referida a la
-                            demanda <InfoDetalleDemanda solicitud={id} />.
+                            demanda número {id}
                         </p>
                         {isLoaded && (
                             <>
-                                <BoxDetalleDemanda infoDemanda={info}/>
-                                <div className="InfDemandante">
-                                    <BoxInfDemandate infoPersona={info.PersonaNatural}/>
-                                </div>
-                                <div className="InfDemandado">
-                                    <BoxInfDemandado infoPersona={info.Demandado}/>
-                                </div>
+                                <InfoDGeneral infoDemanda={info}/>
+                                <InfoDPersona infoPersona={info.PersonaNatural} rol="demandante"/>
+                                <InfoDPersona infoPersona={info.Demandado} rol="demandado"/>
                             </>
                         )}
                     </>

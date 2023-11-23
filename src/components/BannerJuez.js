@@ -49,7 +49,6 @@ export default function BannerJuez(props) {
                         imagen={logout}
                         texto="Cerrar sesión"
                         func={func}
- 
                     />
                 </div>
             </div>
