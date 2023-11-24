@@ -21,7 +21,7 @@ export default function BoxDemanda(props) {
                 </div>
             </div>                
             <div className="BBoton">
-                { infoDemanda.estadoDemandaId === 2 ?
+                { infoDemanda.estadoDemandaId === 1 ?
                     <BotonFecha onDateSelect={handleDateSelection}/>
                     :
                     <></>

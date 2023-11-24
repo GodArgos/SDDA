@@ -7,7 +7,7 @@ import "./Expediente.css";
 
 export default function Expediente(props) {
     const navigate = useNavigate();
-    const [dni, setDni] = useState("");
+    const [dni, setDni] = useState("1");
     const [dniError, setDniError] = useState(false);
 
     const onChangeHandler = (e) => {
@@ -37,17 +37,15 @@ export default function Expediente(props) {
                     En esta pestaña se podrá buscar el expediente requerido a
                     traves del DNI.
                 </p>
-                <form onSubmit={handleOnClick} className="contExp">
+                <div className="contExp">
                     <label id="name">DNI</label>
                     <input
                         type="number"
                         id="input"
-                        minLength="8"
-                        maxLength="8"
                         onChange={onChangeHandler}
                     />
-                    <button type="submit" className="BotonBuscar">Buscar</button>
-                </form>
+                    <button onClick={handleOnClick} className="BotonBuscar">Buscar</button>
+                </div>
             </div>
             {dniError && (
                 <Popup
