@@ -16,8 +16,8 @@ export default function LlenarDemanda(props) {
     const [enviado, setEnviado] = useState(true);
 
     const redirectToLink = () => {
-        window.location.href =
-            "https://drive.google.com/uc?export=download&id=1oaJt680jc0dfNM9hQ5UkmClf_oPGSP6l";
+        window.location.href = 
+            "https://drive.google.com/uc?export=download&id=1p-ns5u1cGP1qeZ-L6qnYprkISpz1yD-M";
     };
 
     const handleSubmit = (e) => {
@@ -73,7 +73,7 @@ export default function LlenarDemanda(props) {
                     <form onSubmit={handleSubmit}>
                         <div className="Box" id="LD-PDF">
                             <div className="InfoLD">
-                                Subir Formulario de demanda de alimentos rellenado:
+                                Subir el Formulario de Demanda de Alimentos rellenado:
                                 <p>
                                     Aquí se sube el archivo con los datos rellenados,
                                     para ser enviados y comenzar con el proceso
@@ -94,7 +94,7 @@ export default function LlenarDemanda(props) {
                             <div className="divCaptcha">
                                 <div className="Captcha">
                                     <input type="checkbox" id="robot" checked={isNotRobot} onChange={handleCheckboxChange} value="esrobot" />
-                                    No soy un robot.
+                                    No soy un robot
                                 </div>
                             </div>
                             <input type="submit" className="BotonEnviarF" value="Enviar Formulario"/>
