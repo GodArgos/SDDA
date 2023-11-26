@@ -24,7 +24,7 @@ export default function DemandaJuez(props) {
             const data = await response.json();
             setDemandas(data);
             setIsDemandasLoaded(true);
-            console.log("Demandas cargadas:", data); // Mostrar datos al cargar
+            //console.log("Demandas cargadas:", data); // Mostrar datos al cargar
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -49,7 +49,7 @@ export default function DemandaJuez(props) {
             }
 
             const data = await response.json();
-            console.log('Fecha establecida con éxito:', data);
+            //console.log('Fecha establecida con éxito:', data);
             fetchData(); // Vuelve a cargar los datos
         } catch (error) {
             console.error('Error al enviar datos:', error);

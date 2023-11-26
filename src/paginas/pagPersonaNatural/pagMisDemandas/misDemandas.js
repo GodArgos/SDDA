@@ -16,7 +16,6 @@ export default function MisDemandas(props) {
             headers: {"Content-type": "application/json",},
             body: JSON.stringify(user)
         })
-            .then(console.log(user))
             .then(response=> response.json())
             .then(procesarDato)
             .then(handleError)

@@ -13,7 +13,8 @@ export default function LlenarDemanda(props) {
     const id = user.id;
     const [isNotRobot, setIsNotRobot] = useState(false);
     const [robotError, setRobotError] = useState(false);
-    const [enviado, setEnviado] = useState(true);
+    const [enviado, setEnviado] = useState(false);
+    const [envioExitoso, setEnvioExitoso] = useState(null);
 
     const redirectToLink = () => {
         window.location.href = 
@@ -24,14 +25,24 @@ export default function LlenarDemanda(props) {
         e.preventDefault();
         if(isNotRobot){
             const formData = new FormData();
-            console.log("Se guardó el archivo");
             formData.append("file", e.target.fileInput.files[0]);
             formData.append("id", id )
             fetch("http://localhost:3001/upload", {
-                method: "POST",
-                body: formData,
-            })
-            setEnviado(false);
+                    method: "POST",
+                    body: formData,
+                })
+                .then((response) =>{
+                    if(response.status !== 200){
+                        throw new Error("Error en la solicitud");
+                    }
+                })
+                .then((data)=>{
+                    setEnvioExitoso(true);
+                })
+                .then(setEnviado(true))
+                .catch((error)=>{
+                    setEnvioExitoso(false);
+                })
         } else {
             setRobotError(true);
         }
@@ -48,7 +59,7 @@ export default function LlenarDemanda(props) {
     return (
         <>
             <BannerPN func={func} />
-            {enviado && (
+            {!enviado && (
                 <div className="Contenido">
                     <h1>Llenar Demanda</h1>
                     <div className="Seccion">
@@ -108,12 +119,21 @@ export default function LlenarDemanda(props) {
                     texto="Verifique que no es un robot."
                 />
             )}
-            {!enviado && (
+            {enviado && envioExitoso && (
                 <div className="Contenido">
                     <h1>Llenar Demanda</h1>
                     <br/>
                     <div className="Box" >
                         <p>Tu solicitud de demanda ha sido enviada con éxito.</p>
+                    </div>
+                </div>
+            )}
+            {enviado && !envioExitoso && (
+                <div className="Contenido">
+                    <h1>Llenar Demanda</h1>
+                    <br/>
+                    <div className="Box" >
+                        <p>Ocurrió un error al enviar tu demanda, por favor intentelo de nuevo.</p>
                     </div>
                 </div>
             )}

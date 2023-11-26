@@ -33,12 +33,12 @@ function App() {
 
     const logout = () => {
         setUser(null);
-        console.log("El usuario ha cerrado sesion.");
+        //console.log("El usuario ha cerrado sesion.");
     };
 
-    const login = () => {
+    /* const login = () => {
         setUser({ id: 1, name: "Miguel", permissions: ["PN"] });
-    };
+    }; */
 
     return (
         <UserContext.Provider value={{ user, setUser }}>

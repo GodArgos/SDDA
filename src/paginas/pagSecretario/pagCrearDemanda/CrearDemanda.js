@@ -66,7 +66,7 @@ export default function CrearDemanda(props) {
 
     const handleDownload = async () => {
         try {
-            console.log(downloadForm);
+            //console.log(downloadForm);
             const response = await fetch("http://localhost:3001/download-pdf", {
                 method: 'POST',
                 headers: { "Content-type": "application/json" },
@@ -92,7 +92,7 @@ export default function CrearDemanda(props) {
     const handleAccept = async () => {
         try {
 
-            console.log(formData)
+            //console.log(formData)
             const response = await fetch("http://localhost:3001/create-demanda", {
                 method: 'POST',
                 headers: { "Content-type": "application/json" },
@@ -116,7 +116,7 @@ export default function CrearDemanda(props) {
 
     const handleDecline = async () => {
         try {
-            console.log(deleteForm);
+            //console.log(deleteForm);
             const response = await fetch("http://localhost:3001/delete-req", {
                 method: 'POST',
                 headers: { "Content-type": "application/json" },

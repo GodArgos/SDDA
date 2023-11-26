@@ -52,7 +52,7 @@ export default function InfoSec() {
 
     function editarInfo() {
         setEditable(!editable);
-        console.log("Ahora se puede editar");
+        //console.log("Ahora se puede editar");
     }
 
     const handleChange = (e) => {
@@ -67,7 +67,7 @@ export default function InfoSec() {
         } else if(info.password !== infoEditada.confirmPassword){
             setpasswordError(true);
         } else {
-            console.log("Se cambiaron las contraseñas:");
+            //console.log("Se cambiaron las contraseñas:");
             fetch("http://localhost:3001/modify-profile", {
                 method: 'POST', 
                 headers: {"Content-type": "application/json",},
@@ -78,14 +78,14 @@ export default function InfoSec() {
                 .then(handleError)
             setUser({...user, "password": infoEditada.password});
             setEditable(!editable);
-            console.log("Se han guardado los cambios");
+            //console.log("Se han guardado los cambios");
         }
     }
 
     function cancelarEdicion() {
         setInfo({ ...info});
         setEditable(!editable);
-        console.log("Se descartaron los cambios");
+        //console.log("Se descartaron los cambios");
     }
 
     const closePNMPopup = () => {
