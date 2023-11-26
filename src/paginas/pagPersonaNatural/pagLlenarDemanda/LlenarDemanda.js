@@ -14,12 +14,17 @@ export default function LlenarDemanda(props) {
     const [isNotRobot, setIsNotRobot] = useState(false);
     const [robotError, setRobotError] = useState(false);
     const [enviado, setEnviado] = useState(false);
-    const [envioExitoso, setEnvioExitoso] = useState(null);
+    const [envioExitoso, setEnvioExitoso] = useState("normal");
+    const [adjuntado, setAdjuntado] = useState(false);
 
     const redirectToLink = () => {
         window.location.href = 
             "https://drive.google.com/uc?export=download&id=1p-ns5u1cGP1qeZ-L6qnYprkISpz1yD-M";
     };
+
+    function handleFileChange(e){
+        setAdjuntado(true);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,16 +37,18 @@ export default function LlenarDemanda(props) {
                     body: formData,
                 })
                 .then((response) =>{
-                    if(response.status !== 200){
+                    if(!response.ok){
                         throw new Error("Error en la solicitud");
                     }
                 })
                 .then((data)=>{
-                    setEnvioExitoso(true);
+                    setEnvioExitoso("exito");
+                    //console.log("La demanda ha sido correctamente enviada.")
                 })
                 .then(setEnviado(true))
                 .catch((error)=>{
-                    setEnvioExitoso(false);
+                    setEnvioExitoso("error");
+                    //console.log("Ocurrió un error en el envío.")
                 })
         } else {
             setRobotError(true);
@@ -59,9 +66,10 @@ export default function LlenarDemanda(props) {
     return (
         <>
             <BannerPN func={func} />
+            <div className="Contenido">
+                <h1>Llenar Demanda</h1>
             {!enviado && (
-                <div className="Contenido">
-                    <h1>Llenar Demanda</h1>
+                <>
                     <div className="Seccion">
                         En esta pestaña podrás descargar el archivo PDF del
                         formulario para realizar una demanda de alimentos.
@@ -91,14 +99,15 @@ export default function LlenarDemanda(props) {
                                     judicial.
                                 </p>
                             </div>
-                            <div className="BotonLD">
+                            <div className="BotonLD" id="FormUpload">
                                 <label
                                     htmlFor="subirDemanda"
                                     className="custom-subirDemanda"
                                 >
                                     Subir Archivo
                                 </label>
-                                <input type="file" name="fileInput" id="subirDemanda" accept=".pdf" required formNoValidate/>
+                                <input type="file" name="fileInput" id="subirDemanda" onChange={handleFileChange} accept=".pdf" required formNoValidate/>
+                                {adjuntado? <p id="Adjunto">Archivo Adjunto</p> : <></> }
                             </div>
                         </div>
                         <div className="RequisitosEnviar">
@@ -111,7 +120,7 @@ export default function LlenarDemanda(props) {
                             <input type="submit" className="BotonEnviarF" value="Enviar Formulario"/>
                         </div>
                     </form>
-                </div>
+                </>
             )}
             {robotError && (
                 <Popup
@@ -119,24 +128,31 @@ export default function LlenarDemanda(props) {
                     texto="Verifique que no es un robot."
                 />
             )}
-            {enviado && envioExitoso && (
-                <div className="Contenido">
-                    <h1>Llenar Demanda</h1>
+            {enviado && envioExitoso === "normal" && (
+                <>
+                    <br/>
+                    <div className="Box" >
+                        <p>Tu solicitud de demanda está siendo enviada. Por favor espere...</p>
+                    </div>
+                </>
+            )}
+            {enviado && envioExitoso === "exito" && (
+                <>
                     <br/>
                     <div className="Box" >
                         <p>Tu solicitud de demanda ha sido enviada con éxito.</p>
                     </div>
-                </div>
+                </>
             )}
-            {enviado && !envioExitoso && (
-                <div className="Contenido">
-                    <h1>Llenar Demanda</h1>
+            {enviado && envioExitoso === "error" && (
+                <>
                     <br/>
                     <div className="Box" >
                         <p>Ocurrió un error al enviar tu demanda, por favor intentelo de nuevo.</p>
                     </div>
-                </div>
+                </>
             )}
+            </div>
         </>
     );
 }

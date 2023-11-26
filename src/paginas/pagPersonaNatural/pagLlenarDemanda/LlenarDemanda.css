@@ -19,6 +19,16 @@
     justify-content: center;
 }
 
+#FormUpload {
+    flex-direction: column;
+    text-align: center;
+}
+
+#Adjunto {
+    font-size: small;
+    margin-top: 0rem;
+}
+
 .BotonD {
     max-width: 60%;
     padding: 3% 15%;
@@ -38,12 +48,14 @@
     background-color: #BC4745;
     color: white;
     height: 100%;
-    padding: 3% 15%;
+    padding: 3% 13%;
     text-align: center;
     font-weight: 500;
     border-width: 0px;
     border-radius: 8px;
     cursor: pointer;
+    margin-left: 20%;
+    max-width: 35%;
 }
 
 /* CSS para enviar el formulario rellenado */
