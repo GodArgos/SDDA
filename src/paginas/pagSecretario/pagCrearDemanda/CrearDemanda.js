@@ -91,19 +91,24 @@ export default function CrearDemanda(props) {
 
     const handleAccept = async () => {
         try {
+
+            console.log(formData)
             const response = await fetch("http://localhost:3001/create-demanda", {
                 method: 'POST',
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify(formData)
+                
             });
-
+    
             if (!response.ok) {
                 const text = await response.text();
                 throw new Error(text);
             }
-
+    
             const data = await response.json();
             alert(data.message);
+            
+            Navigate("/S/solicitudes");
         } catch (error) {
             alert('Error al enviar la solicitud: ' + error.message);
         }
