@@ -34,28 +34,6 @@ export default function DemandaJuez(props) {
         fetchData();
     }, []);
 
-    const handleSetDate = async (demandId, date) => {
-        try {
-            const response = await fetch('http://localhost:3001/set-demand-date', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: demandId, date: date }),
-            });
-
-            if (!response.ok) {
-                throw new Error('La solicitud no se completó con éxito.');
-            }
-
-            const data = await response.json();
-            //console.log('Fecha establecida con éxito:', data);
-            fetchData(); // Vuelve a cargar los datos
-        } catch (error) {
-            console.error('Error al enviar datos:', error);
-        }
-    };
-
     return (
         <>
             <BannerJuez func={func}/>
@@ -68,7 +46,7 @@ export default function DemandaJuez(props) {
                 {isDemandasLoaded ? (
                     demandas.length > 0 ? (
                         demandas.map((demanda, index) => (
-                            <BoxDemanda key={index} infoDemanda={demanda} onSetDate={handleSetDate} />
+                            <BoxDemanda key={index} infoDemanda={demanda} />
                         ))
                     ) : (
                         <p>No hay demandas disponibles.</p>

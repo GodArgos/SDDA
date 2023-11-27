@@ -5,6 +5,7 @@ import UserContext from "../../../UserContext";
 import BannerJuez from "../../../components/BannerJuez";
 import InfoDGeneral from "./infoDGeneral";
 import InfoDPersona from "./infoDPersona";
+import AccionesDemanda from "./AccionesDemanda";
 
 export default function DetalleDemanda(props) {
     const { user } = useContext(UserContext);
@@ -57,8 +58,29 @@ export default function DetalleDemanda(props) {
                 </p> 
             )
         }
-
     }
+
+    const handleSetDate = async (demandId, date) => {
+        try {
+            const response = await fetch('http://localhost:3001/set-demand-date', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: demandId, date: date }),
+            });
+
+            if (!response.ok) {
+                throw new Error('La solicitud no se completó con éxito.');
+            }
+
+            //const data = await response.json();
+            //console.log('Fecha establecida con éxito:', data);
+            fetchData(); // Vuelve a cargar los datos
+        } catch (error) {
+            console.error('Error al enviar datos:', error);
+        }
+    };
 
     return (
         <>
@@ -77,6 +99,8 @@ export default function DetalleDemanda(props) {
                         {isLoaded && (
                             <>
                                 <InfoDGeneral infoDemanda={info}/>
+                                <AccionesDemanda infoDemanda={info} onSetDate={handleSetDate} />
+                                <br/>
                                 <InfoDPersona infoPersona={info.PersonaNatural} rol="demandante"/>
                                 <InfoDPersona infoPersona={info.Demandado} rol="demandado"/>
                             </>

@@ -315,3 +315,18 @@ ul {
     outline: none;
     border-bottom: solid gray 1px;
 }
+
+.BotonesDemanda {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.BotonesDemanda .Boton {
+    width: 30%;
+}
+
+#Rejected .Boton{
+    width: 45%;
+}

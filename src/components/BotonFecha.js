@@ -27,7 +27,7 @@ const buttonContainerStyle = {
     justifyContent: 'center'
 };
 
-const BotonFecha = ({ onDateSelect }) => {
+const BotonFecha = ({ onDateSelect, texto }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -60,7 +60,7 @@ const BotonFecha = ({ onDateSelect }) => {
 
     return (
         <>
-            <button className='Boton' id="BFecha" onClick={openModal}>Fecha Audiencia</button>
+            <button className='Boton' id="BFecha" onClick={openModal}>{texto}</button>
             <Modal 
                 isOpen={modalIsOpen} 
                 onRequestClose={closeModal}
