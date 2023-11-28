@@ -20,6 +20,7 @@ export default function CrearDemanda(props) {
         Navigate("/S/solicitudes");
     }
 
+
     const [formData, setFormData] = useState({
         def_names: '',
         def_lastnames: '',
@@ -62,6 +63,45 @@ export default function CrearDemanda(props) {
             ...prevData,
             [name]: value
         }));
+    };
+
+    const [showPopup, setShowPopup] = useState(false);
+    const [declineMessage, setDeclineMessage] = useState('');
+
+    const handleSendDeclineMessage = async () => {
+        try {
+            
+            const requestData = {
+                id: deleteForm.id,
+                type: 'form', //form o demand
+                state: 4, // Estado de 'rechazado'
+                comment: declineMessage
+            };
+
+            console.log(requestData)
+
+            const response = await fetch("http://localhost:3001/set-state", {
+                method: 'POST',
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(requestData)
+            });
+
+            if (!response.ok) {
+                const text = await response.text();
+                throw new Error(text);
+            }
+
+            const data = await response.json();
+            alert(data.message);
+            setShowPopup(false); 
+            Navigate("/S/solicitudes");
+        } catch (error) {
+            alert('Error al enviar el mensaje: ' + error.message);
+        }
+    };
+
+    const handleDecline1 = () => {
+        setShowPopup(true);
     };
 
     const handleDownload = async () => {
@@ -114,27 +154,6 @@ export default function CrearDemanda(props) {
         }
     };
 
-    const handleDecline = async () => {
-        try {
-            //console.log(deleteForm);
-            const response = await fetch("http://localhost:3001/delete-req", {
-                method: 'POST',
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify(deleteForm)
-            });
-
-            if (!response.ok) {
-                const text = await response.text();
-                throw new Error(text);
-            }
-            //const data = await response.json();
-            //alert(data.message);
-            backSolicitud();
-        } catch (error) {
-            alert('Error al enviar la solicitud: ' + error.message);
-        }
-    };
-
     const fetchData = async () => {
         try {
             const response = await fetch("http://localhost:3001/get-dem-req", {
@@ -173,9 +192,20 @@ export default function CrearDemanda(props) {
                 )}
                 <div>
                     <button className="download-button" onClick={handleDownload}>Descargar PDF</button>
-                    <button className="reject-button" onClick={handleDecline}>Rechazar</button>
+                    <button className="reject-button" onClick={handleDecline1}>Rechazar</button>
                     <button className="accept-button" onClick={handleAccept}>Aceptar</button>
                 </div>
+                {showPopup && (
+                    <div className="popup">
+                        <textarea
+                            value={declineMessage}
+                            onChange={(e) => setDeclineMessage(e.target.value)}
+                            placeholder="Escribe tu mensaje aquí"
+                        />
+                        <button onClick={handleSendDeclineMessage}>Enviar</button>
+                        <button onClick={() => setShowPopup(false)}>Cancelar</button>
+                    </div>
+                )}
             </div>
         </>
     );

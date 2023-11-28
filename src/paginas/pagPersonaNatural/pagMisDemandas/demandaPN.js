@@ -4,7 +4,7 @@ export default function DemandaPN(props) {
     const id = props.infoDemanda.id;
     const url = "/P/misdemandas/" + id;
     const {infoDemanda} = props;
-
+    console.log(infoDemanda)
     return(
         <div className="Box" id="DemandaJuez">
             <div className="BTexto" id="PN">
