@@ -327,6 +327,10 @@ ul {
     width: 30%;
 }
 
+#Rejected {
+    justify-content: center;
+}
+
 #Rejected .Boton{
-    width: 45%;
+    width: 30%;
 }

@@ -3,11 +3,10 @@ import { useParams } from "react-router-dom";
 import UserContext from "../../../UserContext";
 
 import BannerPN from "../../../components/BannerPN";
-import InfoMDGeneral from "./infoMDGeneral";
-import InfoMDPersona from "./infoMDPersona";
+import InfoMDPersona from "../pagDetalleMiDemanda/infoMDPersona";
 import BotonAccion from "../../../components/BotonAccion";
 
-export default function DetalleMiDemanda(props) {
+export default function DetalleMiSolicitud(props){
     const { user } = useContext(UserContext);
     const func = props.func;
     const { id } = useParams();
@@ -22,7 +21,7 @@ export default function DetalleMiDemanda(props) {
 
     const fetchData = async () => {
         try {
-            const response = await fetch("http://localhost:3001/get-demand", {
+            const response = await fetch("http://localhost:3001/get-dem-req", {
                 method: 'POST', 
                 headers: {"Content-type": "application/json"},
                 body: JSON.stringify(req)
@@ -69,50 +68,60 @@ export default function DetalleMiDemanda(props) {
         fetchData();
     }, []);
 
-    function errorDetalleDemanda(){
+    function errorDetalleSolicitud(){
         if(info.PersonaNatural.id === -1){
             return(
                 <p>
-                    No existe una demanda asociada al id de número de demanda: {id}
+                    No existe una solicitud de demanda asociada al id de número de solicitud: {id}
                 </p> 
             )
         } else if (info.PersonaNatural.id !== user.id){
             return(
                 <p>
-                    La demanda con el número de demanda {id} no está asociada al usuario actualmente en sesión.
+                    La solicitud demanda con el número de solicitud {id} no está asociada al usuario actualmente en sesión.
                 </p> 
             )
         }
     }
 
-    return (
+    return(
         <>
             <BannerPN func={func} />
             <div className="Contenido">
                 <h1>
-                    Demanda Nro {id}
+                    Solicitud Nro {id}
                 </h1>
-
                 {info.PersonaNatural.id === user.id ? 
                     <>
                         <p>
                             En esta pestaña encontrará toda la información referida a la
-                            demanda número {id}
+                            solicitud de demanda número {id}
                         </p>
                         { isLoaded && (
                             <>
-                                <InfoMDGeneral infoDemanda={info}/>
+                                <div className="Box">
+                                    <div className="BTexto" id="BInfoDemanda">
+                                        <p><b>Fecha de emisión:</b> {info.fecha_emision}</p>
+                                        <p><b>Estado de Revisión:</b>
+                                            {info.comentario === null ?
+                                                " Por revisar" : " Rechazada"
+                                            }
+                                        </p>
+                                        {info.comentario ?
+                                            <p><b>Comentario de Rechazo:</b> {info.comentario}</p>: <></>
+                                        }
+                                    </div>
+                                </div>
                                 <div className="BotonesDemanda" id="Rejected">
                                     <BotonAccion func={handleDownload} texto="Descargar Formulario Enviado"/>
                                 </div>
                                 <br/>
                                 <InfoMDPersona infoPersona={info.PersonaNatural} rol="demandante"/>
-                                <InfoMDPersona infoPersona={info.Demandado} rol="demandado"/>
                             </>
                         )}
                     </>
                     :
-                    errorDetalleDemanda()
+                    errorDetalleSolicitud()
                 }
             </div>
         </>

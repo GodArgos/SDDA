@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BotonAccion from "../../../components/BotonAccion";
 import BotonFecha from "../../../components/BotonFecha";
 
@@ -71,6 +71,12 @@ export default function AccionesDemanda(props){
             alert('Error al enviar el mensaje: ' + error.message);
         }
     };
+
+    useEffect(()=>{
+        if(infoDemanda.estadoDemandaId === 4){
+            setRechazado(true);
+        }
+    },[])
 
     return (
         <div className="BotonesDemanda" id={rechazado? "Rejected":""}>

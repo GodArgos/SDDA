@@ -27,6 +27,7 @@ import SolicitudDemanda from "./paginas/pagSecretario/pagSolicitudDemanda/Solici
 import CrearDemanda from "./paginas/pagSecretario/pagCrearDemanda/CrearDemanda";
 import MisDemandas from "./paginas/pagPersonaNatural/pagMisDemandas/misDemandas";
 import DetalleMiDemanda from "./paginas/pagPersonaNatural/pagDetalleMiDemanda/detalleMiDemanda";
+import DetalleMiSolicitud from "./paginas/pagPersonaNatural/pagDetalleMiSolicitud/detalleMiSolicitud";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -118,6 +119,10 @@ function App() {
                             path="/P/misdemandas/:id"
                             element={<DetalleMiDemanda func={logout}/>}
                         />
+                        <Route
+                            path="/P/misolicitud/:id"
+                            element={<DetalleMiSolicitud func={logout}/>}
+                        />
                     </Route>
 
                     {/* Ruta protegida de las vistas de secretario */}
@@ -155,14 +160,9 @@ function App() {
                         }
                     />
                 </Routes>
-            </BrowserRouter>
-            
-
-           
-        
+            </BrowserRouter>        
         </div>
         </UserContext.Provider>
-        
     );
 }
 
