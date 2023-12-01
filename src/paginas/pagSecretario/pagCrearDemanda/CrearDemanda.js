@@ -198,13 +198,17 @@ export default function CrearDemanda(props) {
                 </div>
                 {showPopup && (
                     <div className="popup">
-                        <textarea
-                            value={declineMessage}
-                            onChange={(e) => setDeclineMessage(e.target.value)}
-                            placeholder="Escribe tu mensaje aquí"
-                        />
-                        <button onClick={handleSendDeclineMessage}>Enviar</button>
-                        <button onClick={() => setShowPopup(false)}>Cancelar</button>
+                        <div className="Box" id="BRechazo">
+                            <textarea
+                                value={declineMessage}
+                                onChange={(e) => setDeclineMessage(e.target.value)}
+                                placeholder="Escribe tu mensaje aquí"
+                            />
+                            <div id="BBRechazo">
+                                <button onClick={handleSendDeclineMessage}>Enviar</button>
+                                <button onClick={() => setShowPopup(false)}>Cancelar</button>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>

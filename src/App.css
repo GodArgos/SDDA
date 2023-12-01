@@ -342,3 +342,17 @@ ul {
 .textFiltro {
     margin-right: 0.5rem;
 }
+
+#BRechazo{
+    width: 30%;
+    padding: 2rem 3rem;
+    flex-direction: column;
+}
+
+#BBRechazo{
+    margin: 0 25%;
+    padding: 2% 0;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
