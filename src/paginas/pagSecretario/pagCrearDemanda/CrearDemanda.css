@@ -39,19 +39,6 @@
   }
 
   .accept-button {
-    background-color: grey;
-    color: #FFFFFF;
-    border-radius: 10px;
-    border: none;
-    padding: 8px 35px;
-    width: 30%;
-    margin-top: 3%;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-  }
-  
-  .reject-button {
     background-color: #BC4745;
     color: #FFFFFF;
     border-radius: 10px;
@@ -64,6 +51,19 @@
     text-decoration: none;
    margin-left: 3%;
    margin-right: 3%;
+  }
+  
+  .reject-button {
+    background-color: grey;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: none;
+    padding: 8px 35px;
+    width: 30%;
+    margin-top: 3%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
     
   }
 

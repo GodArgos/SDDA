@@ -192,8 +192,9 @@ export default function CrearDemanda(props) {
                 )}
                 <div>
                     <button className="download-button" onClick={handleDownload}>Descargar PDF</button>
-                    <button className="reject-button" onClick={handleDecline1}>Rechazar</button>
                     <button className="accept-button" onClick={handleAccept}>Aceptar</button>
+                    <button className="reject-button" onClick={handleDecline1}>Rechazar</button>
+                    
                 </div>
                 {showPopup && (
                     <div className="popup">
