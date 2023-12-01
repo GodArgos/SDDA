@@ -15,12 +15,13 @@ function FiltroDemanda({ onFiltroChange }) {
       justifyContent: 'flex-end',
       marginRight: "3%",
     }}>
+      <span className='textFiltro'>Filtro:</span>
       <select className='select' value={filtro} onChange={handleChange} style={{
         backgroundColor: "grey",
         color:"white",
         width: "10%",
         borderRadius: 10,
-        
+        marginTop: "0.1rem"
       }}>
         <option value="0">Ninguno</option>
         <option value="1">Recibida</option>
