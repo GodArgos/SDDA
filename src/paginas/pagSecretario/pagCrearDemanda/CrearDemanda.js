@@ -7,6 +7,7 @@ import InfoCrearDemanda from "./InfoCrearDemanda";
 import BoxDemandante from "./BoxDemandante";
 import BoxDemandado from "./BoxDemandado";
 import "./CrearDemanda.css";
+import BotonAccion from "../../../components/BotonAccion";
 
 export default function CrearDemanda(props) {
     const func = props.func;
@@ -202,11 +203,11 @@ export default function CrearDemanda(props) {
                             <textarea
                                 value={declineMessage}
                                 onChange={(e) => setDeclineMessage(e.target.value)}
-                                placeholder="Escribe tu mensaje aquí"
+                                placeholder="Escribe el mensaje de rechazo aquí"
                             />
                             <div id="BBRechazo">
-                                <button onClick={handleSendDeclineMessage}>Enviar</button>
-                                <button onClick={() => setShowPopup(false)}>Cancelar</button>
+                                <BotonAccion func={handleSendDeclineMessage} texto={"Enviar"} />
+                                <BotonAccion func={() => setShowPopup(false)} texto={"Cancelar"} estilo={'BAntiAccion'} />
                             </div>
                         </div>
                     </div>

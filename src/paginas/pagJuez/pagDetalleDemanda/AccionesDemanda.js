@@ -94,11 +94,11 @@ export default function AccionesDemanda(props){
                         <textarea
                             value={declineMessage}
                             onChange={(e) => setDeclineMessage(e.target.value)}
-                            placeholder="Escribe tu mensaje aquí"
+                            placeholder="Escribe el mensaje de rechazo aquí"
                         />
                         <div id="BBRechazo">
-                            <button onClick={handleSendDeclineMessage}>Enviar</button>
-                            <button onClick={() => setShowPopup(false)}>Cancelar</button>
+                            <BotonAccion func={handleSendDeclineMessage} texto={"Enviar"} />
+                            <BotonAccion func={() => setShowPopup(false)} texto={"Cancelar"} estilo={'BAntiAccion'} />
                         </div>
                     </div>
                 </div>

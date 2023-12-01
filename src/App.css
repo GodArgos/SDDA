@@ -349,6 +349,12 @@ ul {
     flex-direction: column;
 }
 
+#BRechazo .Boton{
+    max-height: 2rem;
+    width: 10rem;
+    flex-direction: column;
+}
+
 #BBRechazo{
     margin: 0 25%;
     padding: 2% 0;
