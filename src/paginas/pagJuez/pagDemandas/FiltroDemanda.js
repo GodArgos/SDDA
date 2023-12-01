@@ -10,8 +10,18 @@ function FiltroDemanda({ onFiltroChange }) {
   };
 
   return (
-    <div>
-      <select value={filtro} onChange={handleChange}>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'flex-end',
+      marginRight: "3%",
+    }}>
+      <select className='select' value={filtro} onChange={handleChange} style={{
+        backgroundColor: "grey",
+        color:"white",
+        width: "10%",
+        borderRadius: 10,
+        
+      }}>
         <option value="0">Ninguno</option>
         <option value="1">Recibida</option>
         <option value="2">En proceso</option>

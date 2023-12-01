@@ -86,6 +86,7 @@ export default function DemandaJuez(props) {
 
                 <FiltroDemanda onFiltroChange={handleFiltroChange}/>
 
+                <br/>
 
                 {isDemandasLoaded ? (
                     demandas.length > 0 ? (
